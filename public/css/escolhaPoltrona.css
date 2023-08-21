@@ -1,0 +1,318 @@
+ *{
+    padding: 0;
+    margin: 0;
+}
+@font-face {
+  font-family: 'ubuntu';
+  src: url('../fonts/ubuntu/Ubuntu-Bold.ttf');
+}
+.header {
+background-color: #fe0074;
+height: 70px;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+color: #fff;
+padding-inline: 20px;
+}
+
+.logo {
+margin-left: 10px;
+font-size: 2rem;
+}
+.logo a{
+  color: #fff;
+}
+.logo a:hover{
+  color: #fff;
+}
+
+.title {
+color: #000;
+font-size: 1.4em;
+text-align: center;
+font-weight: 300;
+}
+.title span{
+color: #000;
+font-weight: bold;
+}
+
+.login {
+color: #fff;
+text-decoration: none;
+margin-right: 10px;
+font-size: 14pt;
+font-weight: 600;
+}
+
+
+.footer {
+background-color: #fff;
+border-top: 1px solid #ccc;
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+/*display: flex;
+align-items: center;*/
+padding: 10px 20px;
+/*justify-content: space-between;*/
+}
+
+.left-side,
+.right-side {
+display: flex;
+align-items: center;
+justify-content:  space-between;
+}
+.pai{
+width: 70px;
+/*border: 1px solid #000;*/
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+.texto{
+font-size: 11pt;
+}
+.status {
+width: 30px;
+height: 30px;
+border-radius: 5px;
+}
+
+.selected {
+background-color: #FF4A52;
+}
+
+.occupied {
+  border: 1px solid #E0E0E0;
+  background-color: #E0E0E0;
+  color: #8E92A0;
+  font-weight: 600;
+}
+
+.available {
+  border: 1px solid #b2b2b2;
+}
+
+.total {
+color: #333;
+font-weight: bold;
+margin-right: 10px;
+/*border: 1px solid #000;*/
+width: 100px;
+display: flex;
+flex-wrap: wrap;
+}
+
+.total span {
+font-weight: normal;
+}
+
+.continue {
+background-color: #fe0074;
+color: #fff;
+border: 0;
+padding: 10px 20px;
+border-radius: 5px;
+text-transform: uppercase;
+font-weight: bold;
+cursor: pointer;
+}
+
+.fundo-principal{
+background-color: #F0F1F5;
+/*
+display: flex;
+justify-content: center;
+*/
+padding: 20px 0;
+
+}
+.fundo-branco{
+background-color: #fff;
+/*width: 1000px;
+/*height: 450px;*/
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+padding: 30px 0;
+}
+
+.disabled{
+  background: #b2b2b2;
+  color: #777;
+}
+
+.bus{
+    width: 500px;
+    height: 200px;  
+    /*background-color: #fff;
+    border: 1px solid black;*/
+    border-radius: 20px;
+    background: url("../img/mapa-onibus.png") no-repeat;
+    background-size: 100% 100%;
+    padding: 10px;
+    position: relative;
+  }
+
+  .coluna1{
+   /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 370px; 
+    justify-content: flex-end;
+    margin: 5px;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    margin-top: 3%;
+  }
+
+  .coluna2{
+  /*  border: 1px solid blue; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 370px;
+    justify-content: flex-end;
+    margin: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    margin-bottom: 3%;
+  }
+  .poltrona{
+    border: 1px solid #b2b2b2;
+    margin: 2px;
+    color: #8E92A0;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+  .poltrona:hover{
+    background-color: #FF4A52;
+    border-color: #FF4A52;
+    color: #fff;
+  }
+
+  .selecionado{
+    background-color: #FF4A52;
+    color: #fff;
+    border-color: #FF4A52;
+  }
+  .ocupado{
+    background-color: #E0E0E0;
+    color: #8E92A0;
+  }
+  .ocupado:hover{
+    cursor: default;
+    background-color: #e0e0e0;
+    border-color: #e0e0e0;
+    color: #8E92A0;
+    border: 1px solid #b2b2b2;
+  }
+  .disponivel{
+    background-color: transparent;
+  }
+  .icon-rota{
+    font-size: 15pt;
+  }
+  .rota-partida{
+    color: darkblue;
+  }
+  .rota-destino{
+    color: #aa00e3;
+  }
+  #dataatual{
+    font-size: 1em;
+    font-weight: 500;
+    color: #000;
+    text-align: right;
+  }
+  .div-details{
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 20px; 
+    height: 100px; 
+    width:100%;
+    border-bottom: 1px solid #FF4A52;
+}
+
+.section-valor-tot{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.section-valor-tot span#preco{
+    font-weight: bold;
+    font-size: 14pt; 
+    margin-left:5px;
+}
+
+  @media (max-width: 580px){
+    .title {
+      font-size: 1em;
+      text-align: left;
+    }
+    .div-details{
+      margin-bottom: 20px; 
+      height: 140px; 
+      width:100%;
+    }
+    .container-bus{
+      overflow-x: scroll;
+    }
+    .bus{
+      height: 200px;
+      width: 500px;
+     /* transform: rotate(-90deg);    
+      margin-block: 50px;
+     /* display: flex;
+      align-content: space-between;
+       */
+    }
+    .footer {
+      background-color: #fff;
+      border-top: 1px solid #ccc;
+      position: relative;
+      padding: 10px 20px;
+    }
+    /*
+    .coluna1{
+      display: flex;
+      width: 300px;
+      height: 80px; 
+      justify-content: flex-start;
+      margin: 5px;
+      top: 0;
+      left: 2%;
+      margin-top: 3%;
+    }
+  
+    .coluna2{
+      display: flex;
+      width: 300px;
+      height: 80px;
+      justify-content: flex-start;
+      margin: 5px;
+      bottom: 0;
+      left: 2%;
+      margin-bottom: 3%;
+    }
+    .poltrona{
+      width: 25px;
+      height: 25px;
+    }
+    */
+    .fundo-principal{
+     /* background-color: green; */
+     }
+  }

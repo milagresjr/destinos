@@ -1,0 +1,934 @@
+@font-face {
+    font-family: 'ubuntu';
+    src: url('../fonts/ubuntu/Ubuntu-Bold.ttf');
+}
+
+:root {
+    --main-color: #FF006F;
+}
+/* BOT�O DE LOGIN */
+.user-login i {
+    border: 1px solid #fff;
+    padding: 8px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.div-navbar {
+    display: flex;
+    align-items: center;
+}
+
+.fa-bars {
+    color: #e2005b;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #FF006F;
+    user-select: none;
+    font-family: 'ubuntu';
+}
+
+.logo:hover {
+    color: #FF006F;
+}
+
+.login-link {
+    color: #e2005b;
+    font-size: 1.05em;
+    font-weight: 400;
+}
+
+.icon-user i {
+    color: #FF4A52;
+    font-size: 1.5em;
+}
+
+.info-client a {
+    color: #FF4A52;
+    text-decoration: none;
+    font-size: 1em;
+    cursor:
+        pointer;
+    margin-bottom: -5px;
+}
+
+.info-client a span {
+    font-weight: 600;
+}
+
+.bg-main {
+    background-image: url('../img/banner/Banner\ Bilheteria\ completo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    /*  background: linear-gradient(90deg, #e30068, #ff0092, #ff4ebc); */
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.bg-title {
+    background: #FF006F;
+    /*  background: linear-gradient(90deg, #e30068, #ff0092, #ff4ebc); */
+    height: 300px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    padding: 80px 70px;
+}
+
+.texto-desc {
+    width: 300px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 3em;
+    text-align: right;
+    margin-right: 5%;
+}
+
+.texto-desc-title {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.texto-desc-subtitle {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1em;
+}
+
+.thumb2 img {
+    height: 250px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn-possui-conta {
+    background: #FFF;
+    color: #FF4A52 !important;
+    border: 1px solid #FF4A52;
+}
+
+.data-viagem {
+    padding-left: 30px !important;
+}
+
+.select-ponto-ini {
+    padding-left: 28px !important;
+}
+
+.select-destino {
+    padding-left: 25px !important;
+}
+
+.search_btn i {
+    color: #fff;
+}
+
+.mod {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    filter: blur(30);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7) url('../img/preloader.gif') 50% 50% no-repeat;
+}
+
+.flickity-prev-next-button.previous {
+    left: -80px;
+}
+
+.flickity-prev-next-button.next {
+    right: -80px;
+}
+
+.container-principal-login {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+.container-principal-cad {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.section-cadastro {
+    width: 50%;
+}
+
+.section-login {
+    width: 25%;
+}
+
+.icon-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-client {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-left: -10px;
+}
+
+.form-pesquisa {
+    position: absolute;
+    width: 1200px;
+    bottom: -35px;
+    left: 70px;
+    padding: 40px 10px;
+    background: #fff;
+}
+
+.form_area h3 {
+    position: relative;
+}
+
+/*
+.form_area h3::after{
+    content: '';
+    width: 50%;
+    height: 3px;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+    background-color: #aa00e3;
+}
+*/
+#partindo_de::placeholder {
+    color: rgb(63, 62, 62);
+}
+
+#indo_para::placeholder {
+    color: rgb(63, 62, 62);
+}
+
+.tipo-poltrona {
+    font-weight: bold;
+}
+
+.nome-agencia {
+    margin-top: 8px;
+}
+
+.preco-passagem {
+    /* color: #00c045; */
+    color: #212529;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.cont-pesquisa {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: rgb(7 18 81 / 10%) 0px 4px 8px;
+}
+
+.bg-main {
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.titulo-destino {
+    background: #fff;
+    padding: 20px;
+    border-top: 4px solid var(--main-color);
+    border-radius: 5px;
+    box-shadow: rgb(7 18 81 / 10%) 0px 4px 8px;
+}
+
+.titulo-destino p {
+    font-size: 14pt;
+    text-align: center;
+}
+
+.most_wanted_area {
+    margin-top: 80px;
+}
+
+.data-viagens {
+    width: 80px;
+    height: 40px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    margin: 30px 5px 30px 5px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-subscrever {
+    background: #fff;
+    color: #FF4A52;
+    display: inline-block;
+    padding: 13px 39px;
+    font-family: "Asap";
+    font-size: 16px;
+    font-weight: 600;
+    border: 0 solid #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    text-transform: capitalize;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.data-viagens:hover {
+    background: var(--main-color);
+}
+
+.data-viagens:hover span {
+    color: #fff;
+}
+
+.data-viagens span {
+    align-items: center;
+    font-size: 9pt;
+    text-align: center;
+    color: gray;
+}
+
+.same-date {
+    background: #fff;
+    border: 1px solid var(--main-color);
+    cursor: pointer;
+    background: var(--main-color);
+}
+
+.same-date span {
+    color: #fff;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--main-color);;
+    background-color: #FFF1F0;
+}
+
+.cont-principal {
+    border-top: none;
+    border-left: 6px solid rgb(76, 175, 80);
+    background: #fff;
+    padding: 29px 21px 29px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: rgb(7 18 81 / 10%) 0px 4px 8px;
+}
+
+.btn-info {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 3px 8px;
+    font-size: 10pt;
+    color: var(--main-color);
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #FF006F;
+}
+
+.btn-info:hover {
+    background: #FF006F;
+    border: 1px solid #FF006F;
+    color: #fff;
+}
+
+.btn-select-passagem {
+    background-color: #FF006F;
+    color: #fff;
+}
+
+.btn-select-passagem:hover {
+    background-color: #FF006F;
+    color: #fff;
+}
+
+/*Cor padarao: #FF006F*/
+
+.desc-passagem p {
+    color: #000;
+    font-weight: 300;
+}
+
+.desc-passagem p span {
+    font-weight: 600;
+}
+
+.desc-passagem p i {
+    margin-right: 7px;
+    font-size: 15pt;
+    color: #e2005b;
+}
+
+.desc-onibus {
+    margin-top: 15px;
+}
+
+.desc-onibus p {
+    color: #000;
+    font-weight: 300;
+    /* border: 1px solid #000; */
+}
+
+.desc-onibus p span {
+    font-weight: 600;
+}
+
+.btn-close {
+    border: none;
+    font-size: 14pt;
+}
+
+.btn-logar-modal {
+    background: #FF4A52;
+    border: 1px solid #FF4A52;
+    color: #fff;
+}
+
+.btn-logar-modal:hover {
+    color: #FF4A52;
+    border: 1px solid #FF4A52;
+    background: #fff;
+}
+
+/* ROUTE INFO */
+.route {
+    max-width: 380px;
+    width: auto;
+    margin: 0px;
+    flex: 1 1 0%;
+}
+
+.route-info {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top: 8px;
+}
+
+.route-info-row {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.route-info-hour-start {
+    position: relative;
+    bottom: -6px;
+    right: -5px;
+    font-weight: 700;
+}
+
+.route-info-line {
+    border: 0.5px solid rgb(7, 18, 81);
+    height: 0px;
+    flex: 1 1 0%;
+    position: relative;
+}
+
+.route-info-line::before {
+    left: -12px;
+}
+
+.route-info-line::after {
+    right: -12px;
+}
+
+.route-info-line::after,
+.route-info-line::before {
+    font-size: 13px;
+    font-family: "Material Icons";
+    position: absolute;
+    top: -7px;
+}
+
+.route-info-line-start {
+    margin-left: 16px;
+}
+
+.route-info-line-start::before {
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    margin-top: 2px;
+    margin-left: 4px;
+    background-color: rgb(7, 18, 81);
+    content: "";
+}
+
+.route-info-time {
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: -15px;
+}
+
+.route-info-time-child {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6px 0px 0px;
+    font-size: 12px;
+}
+
+.route-info-time-child .time {
+    margin-top: 12px;
+}
+
+.route-info-line-end {
+    margin-right: 16px;
+}
+
+.route-info-line-end::after {
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    margin-top: 2px;
+    margin-right: 4px;
+    background-color: rgb(0, 159, 221);
+    content: "";
+}
+
+.route-info-hour-end {
+    position: relative;
+    bottom: -6px;
+    left: -5px;
+    font-weight: 700;
+}
+
+.route-info-city-name {
+    width: 50%;
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.route-info-city-name-start {
+    margin: 0px auto 0px 0px;
+    text-align: left;
+    padding-right: 24px;
+}
+
+.route-info-city-name-end {
+    margin: 0px 0px 0px auto;
+    text-align: right;
+    padding-left: 24px;
+}
+
+/* CSS DO NAVBAR MENU */
+.navbar {
+    padding: 0.1rem 0;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 24%);
+}
+
+.offcanvas {
+    max-width: 80%;
+    ;
+    background-color: mintcream;
+    color: #212529;
+}
+
+.nav-link {
+    color: rgba(0, 0, 0, .55)
+}
+
+.nav-link:hover {
+    color: rgba(0, 0, 0, .55)
+}
+
+.offcanvas.offcanvas-start {
+    width: 250px;
+}
+
+.offcanvas-header {
+    background-color: #eee;
+    height: 15%;
+}
+
+.offcanvas-title {
+    line-height: normal;
+    display: inline-block;
+}
+
+.nav-link {
+    font-size: 1.1em;
+}
+
+.div-icon-user {
+    display: flex;
+    align-items: center;
+}
+
+.div-icon-user i {
+    font-size: 1.7em;
+    text-align: right;
+}
+
+/* FIM DO CSS DO NAVBAR MENU */
+
+.icones-destaques {
+    font-size: 4em;
+    color: #909090;
+}
+
+.collapse-link {
+    font-size: 14pt;
+}
+
+.div-preco .valor {
+    font-size: 14pt;
+    font-weight: bold;
+    /*color: #49a84d;*/
+}
+
+body.loading {
+    overflow: hidden;
+}
+
+body.loading .mod {
+    display: block;
+}
+
+/* BTN FECHAR ALERTA */
+.btFecharAlert {
+    border: none;
+    float: right;
+    cursor: pointer;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 14pt;
+}
+
+/* ICON DOS INPUT DA PESQUISA */
+.icon-input {
+    color: #909090;
+    font-size: 12pt;
+    position: absolute;
+    margin-top: 16px;
+    margin-left: 10px;
+}
+
+.date-input::-webkit-calendar-picker-indicator {}
+
+.data-viagem::placeholder {
+    color: red;
+}
+
+/* BTN NEXT AND PREV */
+.btnSwiperNext {
+    position: absolute;
+    right: 0px;
+}
+
+.btnSwiperPrev {
+    position: absolute;
+    left: 0px;
+}
+
+
+.div {
+    border: 1px solid #000;
+    width: 22rem;
+    padding: 8px;
+}
+
+.div span {
+    color: #7A838B;
+}
+
+.desconto {
+    background: #49AC4D;
+    position: absolute;
+    top: 43%;
+    right: 0;
+    margin-right: 15px;
+    width: 100px;
+    height: 35px;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topo {
+    display: flex;
+}
+
+.icones {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-block: 25px 11px;
+    margin-right: 5px;
+}
+
+.rodape {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn-conf {
+    border: none;
+    background: #FF006F;
+    padding: 2px 10px;
+    font-size: 1em;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+.btn-conf a {
+    color: #fff;
+}
+
+.btn-conf a:hover {
+    color: #fff;
+}
+
+.header-area .main-header-area {
+    box-shadow: 0px 3px 16px 0px rgba(153, 133, 133, 0.1);
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+
+    /*body{background-color: yellow;}*/
+    .container-lg {
+        margin: 0 200px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+
+    /* body{background-color: red;}*/
+    .container-lg {
+        margin: 0 450px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    /*body{background-color: blue;}*/
+    .container-lg {
+        margin: 0 20px;
+    }
+
+    .icon-input {
+        color: #909090;
+        font-size: 12pt;
+        position: absolute;
+        margin-top: 16px;
+        margin-left: 10px;
+    }
+
+    .icon-indo-para {
+        margin-top: 81px;
+        /*margin-left: -443px;*/
+        margin-left: -335px;
+    }
+
+    .btnSwiperNext,
+    .btnSwiperPrev,
+    .pagination {
+        display: none;
+    }
+
+    .flickity-prev-next-button {
+        display: none;
+    }
+
+    .offcanvas.offcanvas-start {
+        width: 300px;
+    }
+
+    .form-pesquisa {
+        position: absolute;
+        width: 80%;
+        height: 350px;
+        margin: 0 auto;
+        left: 35px;
+        top: 170px;
+        padding: 40px 10px;
+        background: #fff;
+    }
+
+    .bg-main {
+        height: 420px;
+        margin-bottom: 10px;
+        /* background: linear-gradient(90deg, #e30068, #ff0092, #ff4ebc); */
+        background: var(--main-color);
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .texto-desc {
+        font-weight: 700;
+        font-size: 12pt;
+        text-align: left;
+        margin-top: 80px;
+        margin-left: 20px;
+        text-transform: uppercase;
+       /* background: green; */
+        width: 100%;
+    }
+
+    .bg-main > p {
+        color: #fff;
+        margin-left: 20px;
+        line-height: 20px;
+        font-size: 11pt;
+        font-weight: 600;
+    }
+
+    .single_destination,
+    .img-destino {
+        height: 300px;
+    }
+
+    .popular_destination_area .single_destination .content p {
+        font-size: 25px;
+        font-weight: 700;
+    }
+
+    .boxed-btn4 {
+        width: 100%;
+    }
+
+    .section-cadastro,
+    .section-login {
+        width: 100%;
+    }
+
+    .bg-title {
+        padding: 80px 30px;
+    }
+
+    .texto-desc-title {
+        font-size: 1.5rem;
+        margin-bottom: 1px;
+    }
+
+    .texto-desc-subtitle {
+        line-height: 1.2;
+    }
+
+    .most_wanted_area {
+        margin-top: 250px;
+    }
+
+    .section_title h3 {
+        font-size: 1.6em;
+        font-weight: 600;
+    }
+
+    .where_togo_area .search_wrap .input_field input {
+        height: 40px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+
+    .where_togo_area .search_wrap .input_field {
+        margin-bottom: 3px;
+    }
+
+    .gj-datepicker-md [role="right-icon"] {
+        top: 12px;
+        right: 2px;
+    }
+
+    .where_togo_area .search_wrap .input_field .nice-select {
+        margin-bottom: 3px;
+    }
+
+    .where_togo_area .search_wrap .input_field .nice-select {
+        height: 40px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+    .btnSearch {
+        margin-top: 4px;
+        padding: 8px 39px;
+    }
+
+    .form-pesquisa {
+        height: 250px;
+        padding: 20px 10px;
+        border-radius: 15px;
+        top: 145px;
+        left: 15px;
+        width: 92%;
+    }
+
+    .where_togo_area .form_area h3 {
+        font-size: 20px;
+    }
+
+    .popular_destination_area {
+        padding-top: 20px;
+    }
+
+    .icon-indo-para {
+        margin-top: 56px;
+        margin-left: -290px;
+    }
+
+    body {
+        background-color: #fff;
+        /*orange*/
+    }
+}
+
+@media(min-width: 500px) and (max-width: 800px) {
+
+    .icon-indo-para {
+        margin-top: 81px;
+        margin-left: -443px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    /*body{background-color: green;}*/
+    .container-lg {
+        margin: 0 200px;
+    }
+}

@@ -1,0 +1,26 @@
+
+.fundo-branco{
+    background-color: #fff;
+    padding-inline: 20px;
+}
+
+.form-passageiro .input-control{
+    height: 70px;
+}
+.form-check{
+    margin-left: 20px;
+    margin-top: 15px;
+}
+.f-pag{
+    background-color: #fff;
+    margin-top: 15px;
+    padding: 40px;
+}
+.f-pag h3{
+    margin-left: 80px;
+}
+@media screen and (max-width: 579px) {
+    .f-pag h3{
+        margin-left: -20px;
+    }
+}
