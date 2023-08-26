@@ -160,13 +160,14 @@
 
 <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 <script src="{{ asset('js/flick.js') }}"></script>
-<!-- <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script> 
+<script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script> 
 <!--contact js-->
 <script src="{{ asset('js/contact.js') }}"></script>
 <script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>
 <script src="{{ asset('js/jquery.form.js') }}"></script>
 <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('js/mail-script.js') }}"></script>
+<script src="{{ asset('js/jquery-ui-1.13.2/jquery-ui.min.js') }}"></script>
 
 <script src="{{ asset('js/auto-complete.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
@@ -247,6 +248,43 @@
         icons: {
          rightIcon: '<span class="fa fa-caret-down"></span>'
      }
+    });
+
+    $(document).ready(() => {
+        // $("#autocomplete-input").autocomplete(() => {
+        //     source: "{{ route('autocomplete') }}",
+        //     minLength: 2,
+        //     select: function(event, ui) {
+        //         //Logica para o que fazer quando um item eh selecionado!
+        //     }
+        // });
+        // $("#autocomplete-input").change(function() {
+        //     alert('alertouuu');
+        // })
+
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+        $("#autocomplete-input").autocomplete(() => {
+            source: function(request, response) {
+                $.ajax({
+                    url: "{{ route('autocomplete') }}",
+                    type: 'POST',
+                    dataTYpe: 'JSON',
+                    data: {
+                        _token: CSRF_TOKEN,
+                        search: request.term
+                    },
+                    sucess: function(data) {
+                        response(data);
+                    }
+                });
+            },
+            minLength: 2,
+            select: function(event, ui) {
+                //Logica para o que fazer quando um item eh selecionado!
+            }
+        });
+
     });
 </script>
 </body>

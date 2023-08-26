@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Bilheteria</title>
+    <title>Destino</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="csrf_token"content={{ csrf_token() }} >
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
 <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
 <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}">
+<link rel="stylesheet" href="{{ asset('js/jquery-ui-1.13.2/jquery-ui.css') }}">
 <link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/flick.css') }}">
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">

@@ -10,7 +10,7 @@
             <!-- Texto no background -->
 
             <h2 class="texto-desc">Viage por todo país com a Destino.ao</h2>
-            <p>Reserva fácil com segurança e preços justo</p>
+            <p class="subtext-desc">Reserva fácil com segurança e preços justo</p>
             <!-- Texto no background -->
 
             <!-- where_togo_area_start  -->
@@ -44,25 +44,16 @@
                                     -->
                                     <div class="input_field">
                                         <i class="fa fa-calendar-o icon-input"> </i>
-                                        <input id="datepicker" placeholder="Data de ida" name="data">
+                                        <input type="date" id="datepicker" placeholder="Data de ida" name="data">
                                     </div>
-                                    <div class="input_field">
-                                        <i class="fa fa-circle-o icon-input"> </i>
-                                        <select name="partindo_de">
-                                            <option data-display="Origem">Origem</option>
-                                            @foreach ($destinos as $d)
-                                                <option value="{{ $d->nome }}">{{ $d->nome }}</option>
+                                    <div class="input_field" style="width: 50%; margin-inline: 8px;">
+                                        
+                                        <input type="text" list="autocompletes" class="data-viagem" name="rota" placeholder="Rota" id="partindo_de">
+                                        <datalist id="autocompletes">
+                                            @foreach ($rotas as $rota)
+                                                <option value="{{ $rota->local_partida }} - {{ $rota->local_destino }}"></option>    
                                             @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="input_field">
-                                        <i class="fa fa-map-marker icon-input icon-indo-para"> </i>
-                                        <select name="indo_para">
-                                            <option data-display="Destino">Destino</option>
-                                            @foreach ($destinos as $d)
-                                                <option value="{{ $d->nome }}">{{ $d->nome }}</option>
-                                            @endforeach
-                                        </select>
+                                        </datalist>
                                     </div>
                                     <div class="search_btn">
                                         <button class="boxed-btn4 btnSearch" type="submit">

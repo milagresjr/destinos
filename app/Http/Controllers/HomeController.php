@@ -24,6 +24,8 @@ class HomeController extends Controller
             'Cuanza-Norte', 'Cuanza-Sul', 'Lunda-Norte', 'Lunda-Sul', 'Moxico', 'Huambo', 'Huila', 'Uige', 'Zaire', 'Cunene'
         ];
 
+        $data["rotas"] = DB::select("SELECT d1.nome AS local_partida, d2.nome AS local_destino FROM routes r INNER JOIN destinos d1 ON d1.id=r.local_partida INNER JOIN destinos d2 ON d2.id=r.local_destino GROUP BY d1.nome,d2.nome");
+
         $data['rotas1'] = DB::select("SELECT DISTINCT p.nome AS provi_1, p2.nome AS provi_2, v.id, v.data_partida, v.ponto_partida AS idPartida, v.destino AS idDestino FROM provincias p INNER JOIN viagens v ON p.id=v.ponto_partida INNER JOIN provincias p2 ON p2.id=v.destino ORDER BY v.id LIMIT 3");
         $ultRota1 = $data['rotas1'][2]->id;
         $data['rotas2'] = DB::select("SELECT DISTINCT p.nome AS provi_1, p2.nome AS provi_2, v.id, v.data_partida, v.ponto_partida AS idPartida, v.destino AS idDestino FROM provincias p INNER JOIN viagens v ON p.id=v.ponto_partida INNER JOIN provincias p2 ON p2.id=v.destino WHERE v.id > $ultRota1 ORDER BY v.id LIMIT 3");

@@ -14,7 +14,7 @@ class PassageController extends Controller
         $partindo_id = $p_inicial;
         $indo_id = $destino;
         //dd($p_inicial + " - " + $destino);
-        ////search/passagem?data={{$d->data_partida}}&partindo_de={{ $v->provi_partida }}&indo_para={{ $v->provi_destino }}
+        
         $data = [];
         $data['destinos'] = \DB::select("SELECT p.nome AS provi_1, p2.nome AS provi_2,v.data_partida,v.hora_partida,v.preco_bilhete,v.agencia_id,a.nome,a.logo AS fotoAgencia FROM provincias p INNER JOIN viagens v ON p.id=v.ponto_partida INNER JOIN provincias p2 ON p2.id=v.destino INNER JOIN agencias a ON v.agencia_id=a.id WHERE v.ponto_partida=$p_inicial AND v.destino=$destino LIMIT 1");
         
@@ -31,13 +31,17 @@ class PassageController extends Controller
         $data['datas'] = \DB::select("SELECT DISTINCT data_partida FROM viagens WHERE ponto_partida=$partindo_id AND destino=$indo_id ORDER BY data_partida");
         
         //return view('viagens',$data);
-        return redirect("search/passagem?data=$ultima_data&partindo_de=$nomeProviPartida&indo_para=$nomeProviDestino");
+        return redirect()->route("search_passagem_com_param",[]);
+        return redirect("search/passagem/param?partindo_de=$nomeProviPartida&indo_para=$nomeProviDestino&data=$ultima_data");
     }
 
     public function search(Request $request)
     {
-        $partindo =  $request->input('partindo_de'); //Input::get('partindo_de');
-        $indo = $request->input('indo_para'); //$Input::get('indo_para');
+        $rota = str_replace(" ","",$request->input('rota'));
+        $rotaArray = explode("-",$rota);
+        // dd($rotaArray);
+        $partindo =  $rotaArray[0]; //Input::get('partindo_de');
+        $indo = $rotaArray[1]; //$Input::get('indo_para');
         $dataPartida = strtotime($request->input('data')); //Input::get('data');
 
         $partindo_id = DB::table("provincias")->where('nome','=',$partindo)->get()[0]->id;

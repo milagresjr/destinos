@@ -62,3 +62,26 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+<?php
+
+Route::get('/autocomplete',[AutoCOmpleteController::class, 'autocomplete']);
+
+public function autocomplete(Request $request) {
+    $term = $request->input("term");
+    $res = YourMOdel::where('column','LIKE', '%', $term, '%')->get();
+    return response()->json($res);
+}
+?>
+<input type="text" id="autocomplete-input" >
+<script>
+    $(document).ready(() => {
+        $("#autovomplete-input").autocomplete({
+            source: "{{ route('autocomplete') }}",
+            minLength: 2,
+            select: function(event, ui) {
+                //Logica para o que fazer quando um item eh selecionado!
+            }
+        });
+    });
+</script>

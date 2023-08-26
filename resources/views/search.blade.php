@@ -99,7 +99,7 @@
                             </span>
                        </div>
                        @else
-                       <a class="carousel-cell data-viagens" href="/search/passagem?data={{$d->data_partida}}&partindo_de={{ $v->provi_partida }}&indo_para={{ $v->provi_destino }}">
+                       <a class="carousel-cell data-viagens" href="/search/passagem/param/{{ $v->provi_partida }}/{{ $v->provi_destino }}/{{ $d->data_partida }}">
                        <span>
                             <!-- date('l',strtotime($d->data_partida)) -->
                             {{ date('d/M',strtotime($d->data_partida)) }} <br> 

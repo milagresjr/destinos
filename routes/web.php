@@ -63,7 +63,8 @@ Route::get('/logout', 'App\Http\Controllers\ClientController@logout')->name("log
 
 Route::any('rota/{idViagem}', 'App\Http\Controllers\PassageController@escolher_poltrona')->name("rota_especifica");
 
-Route::get('/autocomplete', 'App\Http\Controllers\AutoCompleteController@index')->name("auto_index");
+Route::post('/autocomplete', 'App\Http\Controllers\AutoCompleteController@autocomplete')->name("autocomplete");
+
 Route::post('/autocomplete/fetch', 'App\Http\Controllers\AutoCompleteController@fetch')->name("auto_fetch");
 
 Route::match(['post'], '/autocomplete/partindo/', 'App\Http\Controllers\AutoCompleteController@fetch')->name("fetch_partindo");

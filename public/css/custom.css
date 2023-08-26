@@ -72,6 +72,18 @@
     justify-content: end;
 }
 
+#autocompletes {
+    background-color: lightgray;
+    border: 1px solid #aaa;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.subtext-desc {
+    display: none;
+}
+
+/* PAGINA DE ATENDIMENTO */
 .bg-title {
     background: #FF006F;
     /*  background: linear-gradient(90deg, #e30068, #ff0092, #ff4ebc); */
@@ -91,6 +103,8 @@
     text-align: right;
     margin-right: 5%;
 }
+
+
 
 .texto-desc-title {
     color: #fff;
@@ -643,7 +657,7 @@ body.loading .mod {
     margin-left: 10px;
 }
 
-.date-input::-webkit-calendar-picker-indicator {}
+/* .date-input::-webkit-calendar-picker-indicator {} */
 
 .data-viagem::placeholder {
     color: red;
@@ -909,6 +923,10 @@ body.loading .mod {
     .icon-indo-para {
         margin-top: 56px;
         margin-left: -290px;
+    }
+
+    .subtext-desc {
+        display: block;
     }
 
     body {
