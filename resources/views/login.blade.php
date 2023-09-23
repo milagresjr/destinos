@@ -17,7 +17,7 @@
           </button>
         </div>
 
-      <form method="post" action="" id="formLogin" class=form-contact contact_form" novalidate="novalidate">
+      <form method="post" id="formLogin" class="form-contact contact_form" novalidate="novalidate">
         @csrf
         <div class="form-group">
           <input type="text" class="form-control valid" name="email_tel" id="email_tel" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email ou Número de telefone'" placeholder="Email ou Número de telefone">

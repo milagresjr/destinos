@@ -1,0 +1,29 @@
+#tabela {
+    overflow-x: scroll;
+}
+.td-column {
+    vertical-align: middle;
+}
+
+.column-descricao {
+    /* background: blue; */
+    /* width: 30px; */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    height: 50px;
+    vertical-align: middle;
+}
+
+@media (max-width: 760px) {
+    table tr th,td {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .column-descricao {
+        text-align: center;
+    }
+}

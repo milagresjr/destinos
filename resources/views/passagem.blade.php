@@ -13,18 +13,21 @@
     @foreach($viagem as $v)
     <div class="col-12 col-sm-4 col-lg-2 ">
       <h5>Convencional</h5>
-      <img src="{{ asset('img/agencias/'.$v->fotoAgencia) }}" alt="Agencias" width="100">
+      <img src="{{ asset('storage/agencias/'.$v->fotoAgencia) }}" alt="Agencias" width="100">
     </div>
     <div class="col-12 col-sm-4 col-lg-8 ">
       <div class="row">
         <div class="title-container">
-         <p class="title">{{ $v->provi_partida }}-cazenga <span>para</span> {{ $v->provi_destino }}-dumba <span>saida</span> 1 de Junho</p>
+         <p class="title">{{ $v->provi_partida }} <span>para</span> {{ $v->provi_destino }} <span>saida</span> 1 de Junho</p>
         </div>
       </div>
     </div>
     <div class="col-12 col-sm-4 col-lg-2 ">
       <h3 id="dataatual">{{ date("d-M-Y",strtotime($v->data_partida)) }}</h3>
     </div>
+    <!-- Input que armazena o valor do preco da viagem -->
+    <input type="hidden" value="{{ $v->preco_bilhete }}" id="inputPrecoViagem">
+    <input type="hidden" value="{{ $v->idViagem }}" id="inputIdViagem">
     @endforeach
   </div>
 
@@ -120,6 +123,7 @@
   
 
 <script>
+
     let meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
     let diadesemana = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
     let dataAtual = new Date();

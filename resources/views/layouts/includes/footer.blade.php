@@ -50,10 +50,10 @@
                             Informações
                         </h3>
                         <ul class="links">
-                            <li><a href="#">Atendimento</a></li>
-                            <li><a href="#">Termos de uso</a></li>
-                            <li><a href="#"> Politica de privacidade</a></li>
-                            <li><a href="#"> Quem somos</a></li>
+                            <li><a href="{{ route('atendimento') }}">Atendimento</a></li>
+                            <li><a href="{{ route('termos') }}">Termos de uso</a></li>
+                            {{-- <li><a href="#"> Politica de privacidade</a></li> --}}
+                            <li><a href="{{ route('sobre') }}"> Quem somos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -138,40 +138,45 @@
 
 <script src=" https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script> -->
 <!-- JS here -->
-<script src="{{ asset('js/vendor/modernizr-3.5.0.min.js') }}"></script>
-<script src="{{ asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
-<script src="{{ asset('js/popper.min.js') }}"></script>
+{{-- <script src="{{ asset('js/vendor/modernizr-3.5.0.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/vendor/jquery-1.12.4.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/popper.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/owl.carousel.min.js') }}"></script> --}}
+<script src="{{ asset('js/code.jquery.com_jquery-3.7.1.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
-<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
-<script src="{{ asset('js/ajax-form.js') }}"></script>
-<script src="{{ asset('js/waypoints.min.js') }}"></script>
-<script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
-<script src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script>
-<script src="{{ asset('js/scrollIt.js') }}"></script>
-<script src="{{ asset('js/jquery.scrollUp.min.js') }}"></script>
-<script src="{{ asset('js/wow.min.js') }}"></script>
-<script src="{{ asset('js/nice-select.min.js') }}"></script>
-<script src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
-<script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ asset('js/plugins.js') }}"></script>
-<script src="{{ asset('js/gijgo.min.js') }}"></script>
-<script src="{{ asset('js/slick.min.js') }}"></script>
+{{-- <script src="{{ asset('js/ajax-form.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/waypoints.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/jquery.counterup.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/scrollIt.js"') }}"></script> --}}
+{{-- <script src="{{ asset('js/jquery.scrollUp.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/wow.min.js">') }}"></script> --}}
+{{-- <script src="{{ asset('js/nice-select.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/jquery.slicknav.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/plugins.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/gijgo.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/slick.min.js') }}"></script> --}}
 
 <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
 <script src="{{ asset('js/flick.js') }}"></script>
-<script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script> 
+{{-- <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>  --}}
+
 <!--contact js-->
-<script src="{{ asset('js/contact.js') }}"></script>
+{{-- <script src="{{ asset('js/contact.js') }}"></script>
 <script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>
 <script src="{{ asset('js/jquery.form.js') }}"></script>
 <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
-<script src="{{ asset('js/mail-script.js') }}"></script>
+<script src="{{ asset('js/mail-script.js') }}"></script> --}}
 <script src="{{ asset('js/jquery-ui-1.13.2/jquery-ui.min.js') }}"></script>
 
-<script src="{{ asset('js/auto-complete.js') }}"></script>
-<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/moment.min.js') }}"></script>
+{{--  <script src="{{ asset('js/main.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script> --}}
+<script src="{{ asset('js/sweetalert.min.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
+{{-- <script src="{{ asset('js/search.js') }}"></script> --}}
+<script src="{{ asset('js/autocomplete.js') }}"></script>
 
 <script>
     var swiper1 = new Swiper(".mySwiper1", {
@@ -236,57 +241,42 @@
 <script>
     $('.flickity-page-dots').remove();
 
-      
     let dataAtual = new Date();
     document.getElementById("dataatual").innerHTML = "asdfggfgdf";
     let data = document.getElementById("dataatual").innerHTML = "asdfggfgdf";
      data.innerText = dataAtual;
 </script>
-<script>
-    $('#datepicker').datepicker({
-        iconsLibrary: 'fontawesome',
-        icons: {
-         rightIcon: '<span class="fa fa-caret-down"></span>'
-     }
-    });
 
-    $(document).ready(() => {
-        // $("#autocomplete-input").autocomplete(() => {
-        //     source: "{{ route('autocomplete') }}",
-        //     minLength: 2,
-        //     select: function(event, ui) {
-        //         //Logica para o que fazer quando um item eh selecionado!
-        //     }
-        // });
-        // $("#autocomplete-input").change(function() {
-        //     alert('alertouuu');
-        // })
-
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-
-        $("#autocomplete-input").autocomplete(() => {
-            source: function(request, response) {
-                $.ajax({
-                    url: "{{ route('autocomplete') }}",
-                    type: 'POST',
-                    dataTYpe: 'JSON',
-                    data: {
-                        _token: CSRF_TOKEN,
-                        search: request.term
-                    },
-                    sucess: function(data) {
-                        response(data);
-                    }
-                });
-            },
-            minLength: 2,
-            select: function(event, ui) {
-                //Logica para o que fazer quando um item eh selecionado!
-            }
+<script>    
+    // alert('olaaaa');
+    
+    $(document).ready(function() {
+        
+        $('#datepicker').datepicker({
+            iconsLibrary: 'fontawesome',
+            dateFormat: 'dd/mm/yy',
+            altFormat: 'DD, MMMM',
+            icons: {
+             rightIcon: '<span class="fa fa-caret-down"></span>'
+         }
+        }).on('change', function(){
+            var date = moment($(this).datepicker('getDate')).format('DD, MMMM');
+            //Faca qualquer coisa com a data aqui...
+            // alert(date);
+            // $(this).val(date);
         });
 
     });
+
+
+
 </script>
+@if(session('sessionSemViagem'))
+    <script>
+        var msg ='De momento estamos sem viagem marcada para esta rota!'
+        swal('oops!',msg,'error');
+    </script>
+@endif
 </body>
 
 </html>

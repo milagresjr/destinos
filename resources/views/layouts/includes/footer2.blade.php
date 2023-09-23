@@ -1,6 +1,8 @@
 
-<script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
-<script src="{{ asset('js/escolhaPoltraa.js') }}"></script>
+{{-- <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script> --}}
+<script src="{{ asset('js/code.jquery.com_jquery-3.7.1.min.js') }}"></script>
+{{-- <script src="{{ asset('js/escolhaPoltraa.js') }}"></script> --}}
+<script src="{{ asset('js/sweetalert.min.js') }}"></script>
 
 <script>
 
@@ -12,17 +14,18 @@
       var selectedSeats = 0; //Variavel que conta o numero de poltronas ja selecionadas
       var preco = 0; //Variavel para calcular o preco das poltronas de acordo as quantidades selecionadas
       var lblpreco = $('#preco'); //Pega o elemento com id preco
-      var listaDePoltronas = []; //Array para armazenar todas as poltronas selecionadas
+      var listaDePoltronas = []; // Array para armazenar todas as poltronas selecionadas
       const btnContinuar = document.querySelector('#btContinuarReserva');
-      const precoViagem = {{ isset($_GET["preco"])?$_GET["preco"]:0 }} //Pega o preco da viagem na url
-    
+      // const precoViagem = {{ isset($_GET["preco"])?$_GET["preco"]:0 }} //Pega o preco da viagem na url
+      const precoViagem = $('#inputPrecoViagem').val(); 
       //Desabilita o botao continuar reserva
       btnContinuar.disabled = true;
 
       //Evento para quando clicar em uma poltrona
       $('.poltrona').click(function(){
         //alert(idViagem);
-            var idViagem = {{ isset($_GET["idViagem"])?$_GET["idViagem"]:0 }} //Variavel que pega o id da viagem na url
+            // var idViagem = {{ isset($_GET["idViagem"])?$_GET["idViagem"]:0 }} //Variavel que pega o id da viagem na url
+            var idViagem = $('#inputIdViagem').val();
             var valorPoltrona = $(this).data('value'); //Variavel que pega o valor da poltrona
             var potSelecionada = $(this); //Variavel que armazena a poltrona que foi clicada
             
@@ -61,7 +64,7 @@
                   data: {numero_poltrona: valorPoltrona, id_viagem: idViagem, _token: _token},
                   success: function(response){
                 if(response.res){
-                  alert('A poltrona esta temporariamente selecionada por outro cliente. Por favor, Selecione outra poltrona');
+                  swal('Impossível selecionar poltrona','A poltrona já foi selecionada por outro cliente. Por favor, selecione outra poltrona','error');
                  }else{ 
                   //Chamar a funcao selecionarPoltrona 
                   selecionarPoltrona(potSelecionada);
@@ -111,7 +114,7 @@
                 preco = preco - precoViagem;
                 lblpreco.text(preco+' Kz');
               } else if (selectedSeats >= 3) {
-                  alert("Você só pode escolher 3 poltronas");
+                  swal('Oops!','Você só pode escolher 3 poltronas','error');
               }
       }
   

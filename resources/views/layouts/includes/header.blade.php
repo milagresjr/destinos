@@ -30,6 +30,10 @@
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+<link rel="stylesheet" href="{{ asset('css/search.css') }}">
+<link rel="stylesheet" href="{{ asset('css/about.css') }}">
+<link rel="stylesheet" href="{{ asset('css/agencia.css') }}">
+<link rel="stylesheet" href="{{ asset('css/bilhete.css') }}">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
@@ -58,12 +62,12 @@
                     <i class="fa fa-user-circle"></i>
                   </div>
                   <div class="col-10 info-client">
-                    <a href="#">Ola, <span>{{ \Auth::guard('client')->user()->nome }}</span></a>
+                    <a href="#">Olá, <span>{{ \Auth::guard('client')->user()->nome }}</span></a>
                  <div class="dropdown">
                   <a class="dropdown-toggle" href="#dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Minha conta</a>
                       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Meus bilhetes</a></li>
                         <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                       </ul>
                     </div>
@@ -78,17 +82,17 @@
           <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
               
-                <div class="row">
-                    <div class="col-3 div-icon-user">
-                        <i class="fa fa-user-circle"></i>
-                    </div>
-                    <div class="col-9 side-right">
-                    @if(\Auth::guard('client')->user())
-                  <!--  <h5 class="" id="offcanvasNavbarLabel" style="margin-bottom: -4px; margin-left: -10px;">Ola, {{ \Auth::guard('client')->user()->nome }}</h5> -->
-                    <span style="margin-left: -10px; font-size: small;">{{ \Auth::guard('client')->user()->email }}</span>
-                    @else
-                    <h5 class="" id="offcanvasNavbarLabel" style="margin-bottom: -4px; margin-left: -10px;">Ola, Faça seu login </h5>
-                    @endif
+                <div class="info-user">
+                  <div class="div-icon-user">
+                      <i class="fa fa-user-circle"></i>
+                  </div>
+                  <div class="side-right">
+                      @if(\Auth::guard('client')->user())
+                      <h5 class="" id="offcanvasNavbarLabel">Ola, {{ \Auth::guard('client')->user()->nome }}</h5>
+                      {{-- <span style="">{{ \Auth::guard('client')->user()->email }}</span> --}}
+                      @else
+                      <h5 class="" id="offcanvasNavbarLabel">Olá, Faça seu login</h5>
+                      @endif
                 </div>
           </div>
           <!--
@@ -98,26 +102,30 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#"> <i class="fa fa-question-circle icon"></i> Atendimento</a>
+                  <a class="nav-link"  href="{{ route('home') }}"> <i class="fa fa-home icon"></i> Passagem de ônibus</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#"> <i class="fa fa-ticket icon"></i> Passagens</a>
+                  <a class="nav-link" aria-current="page" href="{{ route('atendimento') }}"> <i class="fa fa-question-circle icon"></i> Atendimento</a>
                 </li>
-                <li class="nav-item">
+                @if(\Auth::guard('client')->user())
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"> <i class="fa fa-user-circle icon"></i> Minha Conta</a>
+                  </li>
+                @endif
+                {{-- <li class="nav-item">
                   <a class="nav-link" href="#"> <i class="fa fa-tags icon"></i> Promoções</a>
+                </li> --}}
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('agencias') }}"> <i class="fa fa-bus icon"></i> Agências de viagem</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#"> <i class="fa fa-bus icon"></i> Viações</a>
+                  <a class="nav-link" href="{{ route('rotas') }}"> <i class="fa fa-map icon"></i> Rotas</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"> <i class="fa fa-map icon"></i> Rodoviárias</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"> <i class="fa fa-newspaper-o icon"></i> Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('login') }}"> <i class="fa fa-user icon"></i> Login</a>
-                </li>
+                @if(!\Auth::guard('client')->user())
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}"> <i class="fa fa-user icon"></i> Login</a>
+                  </li>
+                @endif
               </ul>
             </div>
           </div>

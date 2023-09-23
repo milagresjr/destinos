@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('destinos', function (Blueprint $table) {
             $table->increments("id");
             $table->string("nome");
-            $table->string("descricao");
+            $table->text("descricao");
             $table->string("foto");
             $table->timestamps();
         });

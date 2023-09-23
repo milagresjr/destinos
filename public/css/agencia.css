@@ -1,0 +1,67 @@
+.card-agencias {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    color: #000;
+
+}
+
+.section-rota {
+    margin-bottom: 50px;
+}
+
+.list-group .list-group-item {
+    display: flex;
+    justify-content: space-around;
+}
+
+.list-group .list-group-item span {
+    font-weight: 600;
+    width: 80px;
+    /* border: 1px solid red; */
+}
+/*  */
+.section-sobre {
+    margin-bottom: 50px;
+}
+
+/*  */
+.section-terminais {
+    margin-bottom: 50px;
+}
+
+/*  */
+.section-como-comprar {
+    margin-bottom: 50px;    
+}
+.section-como-comprar ol li{
+    list-style-type: decimal;
+    font-size: 11pt;
+}
+
+/*  */
+.section-contactos {
+    margin-bottom: 50px;
+}
+.card-title {
+    font-weight: 600;
+}
+
+/*  */
+/* .section-outras-agencias {
+
+} */
+.section-outras-agencias img {
+    width: 150px;
+    margin: 5px;
+}
+
+@media (max-width: 760px) {
+    .container-main {
+        margin-top: -100px;
+    }
+}

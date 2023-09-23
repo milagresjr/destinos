@@ -9,10 +9,9 @@
       <!-- Your Page Content Here -->   
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Data Table With Full Features</h3>
         </div>
       <div class="box-body">
-      <table id="tabelaReserva" class="table table-striped table-bordered table-hover">
+      <table id="tabelaReserv" class="table table-striped table-bordered table-hover">
 
         <thead>
           <tr role="row">
@@ -41,5 +40,18 @@
       </table>
     </div>
       </div>
+
+
+      <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+           // ALTERAR ENTRE MENU ATIVO
+          addActiveClass('reservas');
+
+        });
+
+
+      </script>
 
 @endsection

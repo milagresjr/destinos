@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer("viagem_id")->unsigned();
             $table->integer("numero_poltrona");
             $table->timestamps();
-            $table->foreign("viagem_id")->references("id")->on("viagens")->onDelete("cascade");
+            $table->foreign("viagem_id")->references("id")->on("travels")->onDelete("cascade");
         });
     }
 

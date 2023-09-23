@@ -14,6 +14,11 @@
     cursor: pointer;
 }
 
+.input_autocomplete {
+    margin-inline: 8px;
+}
+
+
 .div-navbar {
     display: flex;
     align-items: center;
@@ -33,18 +38,45 @@
     font-family: 'ubuntu';
 }
 
+.info-user {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    /* gap: 15px; */
+    /* z-index: 100; */
+}
+.side-right {
+    width: 90%;
+    display: flex;
+    align-content: flex-end;
+    margin-left: 5px;
+    /* border: 1px solid blue; */
+}
+.side-right span, h5 {
+    /* border: 1px solid red; */
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .logo:hover {
     color: #FF006F;
 }
 
 .login-link {
-    color: #e2005b;
+    color: #FF006F;
     font-size: 1.05em;
     font-weight: 400;
 }
 
+.login-link:hover {
+    color: #FF006F;
+}
+
 .icon-user i {
-    color: #FF4A52;
+    color: #FF006F;
     font-size: 1.5em;
 }
 
@@ -70,6 +102,12 @@
     display: flex;
     align-items: center;
     justify-content: end;
+}
+
+/* IMAGENS BOTTOM */
+.image-bottom {
+    width: 100%;
+    height: 400px;
 }
 
 #autocompletes {
@@ -124,6 +162,10 @@
 
 a {
     text-decoration: none;
+}
+
+.footer .footer_top .footer_widget ul li a:hover {
+    color: #fff;
 }
 
 .btn-possui-conta {
@@ -927,6 +969,19 @@ body.loading .mod {
 
     .subtext-desc {
         display: block;
+    }
+
+    .input_autocomplete {
+        width: 100%;
+        margin-inline: 0;
+    }
+
+    /* IMAGENS BOTTOM */
+    .image-bottom {
+        height: 200px;
+    }
+    .img2 {
+        margin: 10px 0;
     }
 
     body {

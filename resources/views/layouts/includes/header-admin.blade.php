@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Starter</title>
+  <title>Destino.ao - Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -25,6 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         apply the skin class to the body tag so the changes take effect.
   -->
   <link rel="stylesheet" href="{{ asset('admin/dist/css/skins/skin-blue.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('admin/dist/css/globalAdminStyle.css') }}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,9 +63,9 @@ desired effect
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>A</b>DM</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Bilheteria</b>ADMIN</span>
+      <span class="logo-lg"><b>Destino.ao </b>ADMIN</span>
     </a>
 
     <!-- Header Navbar -->
@@ -80,8 +81,8 @@ desired effect
           <li class="dropdown messages-menu">
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
+              {{-- <i class="fa fa-envelope-o"></i> --}}
+              {{-- <span class="label label-success">4</span> --}}
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have 4 messages</li>
@@ -92,7 +93,7 @@ desired effect
                     <a href="#">
                       <div class="pull-left">
                         <!-- User Image -->
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        {{-- <img src="{{ asset('storage/users/'.Auth::guard('user')->user()->avatar.'') }}" class="img-circle" alt="User Image"> --}}
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -116,8 +117,8 @@ desired effect
           <li class="dropdown notifications-menu">
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+              {{-- <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span> --}}
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have 10 notifications</li>
@@ -139,8 +140,8 @@ desired effect
           <li class="dropdown tasks-menu">
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
+              {{-- <i class="fa fa-flag-o"></i>
+              <span class="label label-danger">9</span> --}}
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have 9 tasks</li>
@@ -176,22 +177,22 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="{{ asset('storage/users/'.Auth::guard('user')->user()->avatar.'') }}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{ Auth::guard('user')->user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="{{ asset('storage/users/'.Auth::guard('user')->user()->avatar.'') }}" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{ Auth::guard('user')->user()->name }} - Web Developer
+                  <small>Membro desde Nov. 2022</small>
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
+              {{-- <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
                     <a href="#">Followers</a>
@@ -204,14 +205,14 @@ desired effect
                   </div>
                 </div>
                 <!-- /.row -->
-              </li>
+              </li> --}}
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ route('logout.admin') }}" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
@@ -233,10 +234,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="{{ asset('storage/users/'.Auth::guard('user')->user()->avatar.'') }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>{{ Auth::guard('user')->user()->name }}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -259,10 +260,13 @@ desired effect
         <li class="header">MENU</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="item-menu active"><a href="{{ route('admin.home') }}"><i class="fa fa-link"></i> <span>Home</span></a></li>
-        <li class="item-menu"><a href="#"><i class="fa fa-link"></i> <span>Rotas</span></a></li>
-        <li class="item-menu"><a href="#"><i class="fa fa-link"></i> <span>Destinos</span></a></li>
-        <li class="item-menu"><a href="{{ route('admin.reserva') }}"><i class="fa fa-link"></i> <span>Reservas</span></a></li>
-        <li class="item-menu treeview">
+        <li class="item-menu agencias"><a href="{{ route('admin.agencia.index') }}"><i class="fa fa-link"></i> <span>Agências</span></a></li>
+        <li class="item-menu destinos"><a href="{{ route('admin.destino.index') }}"><i class="fa fa-link"></i> <span>Destinos</span></a></li>
+        <li class="item-menu terminais"><a href="{{ route('admin.terminal.index') }}"><i class="fa fa-link"></i> <span>Terminais</span></a></li>
+        <li class="item-menu rotas"><a href="{{ route('admin.rota.index') }}"><i class="fa fa-link"></i> <span>Rotas</span></a></li>
+        <li class="item-menu viagens"><a href="{{ route('admin.viagem.index') }}"><i class="fa fa-link"></i> <span>Viagens</span></a></li>
+        <li class="item-menu reservas"><a href="{{ route('admin.reserva') }}"><i class="fa fa-link"></i> <span>Reservas</span></a></li>
+        {{-- <li class="item-menu treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Provincias</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -272,7 +276,7 @@ desired effect
             <li><a href="#">Link in level 2</a></li>
             <li><a href="#">Link in level 2</a></li>
           </ul>
-        </li>
+        </li> --}}
       </ul>
       <!-- /.sidebar-menu -->
     </section>

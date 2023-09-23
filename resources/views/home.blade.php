@@ -13,62 +13,10 @@
             <p class="subtext-desc">Reserva fácil com segurança e preços justo</p>
             <!-- Texto no background -->
 
-            <!-- where_togo_area_start  -->
-            <div class="where_togo_area form-pesquisa shadow">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-3">
-                            <div class="form_area">
-                                <h3 style="color: #040e27; text-align: center;">Ache sua passagem</h3>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="search_wrap">
-                                <form class="search_form" action="{{ url('/search/passagem/') }}">
-                                    <!--
-                                        <div class="input_field">
-                                            <i class="fa fa-calendar-o icon-input"> </i>
-                                            <input id="" type="date" class="form-control data-viagem date-input" name="data" placeholder="Date">
-                                        </div>
-                                        <div class="input_field">
-                                            <i class="fa fa-circle-o icon-input"> </i>
-                                            <input id="partindo_de" class="form-control data-viagem" name="partindo_de" placeholder="Partindo de" >
-                                            {{ csrf_field() }}
-                                            <div id="listaPartindo" style="position: relative;">
-                                            </div>
-                                        </div>
-                                        <div class="input_field">
-                                            <i class="fa fa-map-marker icon-input icon-indo-para"> </i>
-                                            
-                                        </div>
-                                    -->
-                                    <div class="input_field">
-                                        <i class="fa fa-calendar-o icon-input"> </i>
-                                        <input type="date" id="datepicker" placeholder="Data de ida" name="data">
-                                    </div>
-                                    <div class="input_field" style="width: 50%; margin-inline: 8px;">
-                                        
-                                        <input type="text" list="autocompletes" class="data-viagem" name="rota" placeholder="Rota" id="partindo_de">
-                                        <datalist id="autocompletes">
-                                            @foreach ($rotas as $rota)
-                                                <option value="{{ $rota->local_partida }} - {{ $rota->local_destino }}"></option>    
-                                            @endforeach
-                                        </datalist>
-                                    </div>
-                                    <div class="search_btn">
-                                        <button class="boxed-btn4 btnSearch" type="submit">
-                                            <i class="fa fa-search"> </i>
-                                            Buscar
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- where_togo_area_end  -->
-
+            {{-- FORM PESQUISA --}}
+            @include('layouts.includes.form-pesquisa')
+            {{-- FIM FORM-PESQUISA --}}
+            
         </div>
 
     </div>
@@ -88,75 +36,22 @@
             <div class="row">
                 <div class="swiper mySwiper1">
                     <div class="swiper-wrapper">
+                    @if($destinos)
+                        @foreach($destinos as $destino)
                         <div class="col-lg-4 col-md-6 swiper-slide">
                             <div class="single_destination">
                                 <div class="thumb">
-                                    <img src="{{ asset('img/provincias/luanda.jpg') }}" class="img-destino" alt="">
+                                    <img src="{{ asset('storage/destinos/'.$destino->foto.'') }}" class="img-destino" alt="">
                                 </div>
                                 <div class="content">
-                                    <p class="d-flex align-items-center">Luanda</p>
+                                    <p class="d-flex align-items-center">{{ $destino->nome }}</p>
 
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 swiper-slide">
-                            <div class="single_destination">
-                                <div class="thumb">
-                                    <img src="{{ asset('img/provincias/benguela.jpg') }}" class="img-destino"
-                                        alt="">
-                                </div>
-                                <div class="content">
-                                    <p class="d-flex align-items-center">Benguela</p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 swiper-slide">
-                            <div class="single_destination">
-                                <div class="thumb">
-                                    <img src="{{ asset('img/provincias/huambo.jpg') }}" class="img-destino" alt="">
-                                </div>
-                                <div class="content">
-                                    <p class="d-flex align-items-center">Huambo</p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 swiper-slide ">
-                            <div class="single_destination">
-                                <div class="thumb">
-                                    <img src="{{ asset('img/provincias/huila.jpg') }}" class="img-destino" alt="">
-                                </div>
-                                <div class="content">
-                                    <p class="d-flex align-items-center">Huila</p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 swiper-slide">
-                            <div class="single_destination">
-                                <div class="thumb">
-                                    <img src="{{ asset('img/provincias/cabinda.jpg') }}" class="img-destino"
-                                        alt="">
-                                </div>
-                                <div class="content">
-                                    <p class="d-flex align-items-center">Cabinda</p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 swiper-slide">
-                            <div class="single_destination">
-                                <div class="thumb">
-                                    <img src="{{ asset('img/provincias/cunene.jpg') }}" class="img-destino"
-                                        alt="">
-                                </div>
-                                <div class="content">
-                                    <p class="d-flex align-items-center">Cunene</p>
-
-                                </div>
-                            </div>
-                        </div>
+                       </div>                        
+                        @endforeach
+                    @endif
+                </div>
                     </div>
                 </div>
             </div>
@@ -176,72 +71,21 @@
                 </div>
             </div>
             <div class="row">
+                @if($destinos)
+                    @foreach($destinos as $destino)
                 <div class="col-lg-4 col-md-6">
                     <div class="single_destination">
                         <div class="thumb thumb2">
-                            <img src="{{ asset('img/provincias/cunene.jpg') }}" alt="Luanda">
+                            <img src="{{ asset('storage/destinos/'.$destino->foto.'') }}" alt="Luanda">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">Cunene </p>
+                            <p class="d-flex align-items-center">{{ $destino->nome }}</p>
 
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb thumb2">
-                            <img src="{{ asset('img/provincias/benguela.jpg') }}" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Benguela </p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb thumb2">
-                            <img src="{{ asset('img/provincias/luanda.jpg') }}" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Luanda </p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb thumb2">
-                            <img src="{{ asset('img/provincias/cabinda.jpg') }}" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Cabinda </p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb thumb2">
-                            <img src="{{ asset('img/provincias/huila.jpg') }}" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Huila </p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb thumb2">
-                            <img src="{{ asset('img/provincias/huambo.jpg') }}" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Huambo </p>
-
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
@@ -292,7 +136,7 @@
                 <div class="col-lg-6">
                     <div class="section_title text-center mb_20">
                         <h3>Principais ofertas de passagens</h3>
-                        <p>Confira as ofertas exclusivas de passagens mais buscada em nosso site</p>
+                        <p>Confira as ofertas exclusivas de passagens em nosso site</p>
                     </div>
                 </div>
             </div>
@@ -302,8 +146,8 @@
                     @foreach ($Rotasofertas as $r)
                         <div class="carousel-cell" style="margin-inline: 10px;">
                             <div class="card shadow" style="width: 21rem; position: relative;">
-                                <span class="desconto">20% off</span>
-                                <img src="{{ asset('img/uploads/' . $r->fotoProvi) }}" class="card-img-top" alt="..."
+                                {{-- <span class="desconto">20% off</span> --}}
+                                <img src="{{ asset('storage/destinos/' . $r->fotoProvi) }}" class="card-img-top" alt="..."
                                     style="height: 200px;">
                                 <div class="card-body">
                                     <div class="topo">
@@ -313,10 +157,9 @@
                                         </div>
                                         <div class="rotas">
                                             <span>Saindo de</span>
-                                            <h5 style="margin-bottom: 15px;font-weight: bold;">{{ $r->provi_1 }} -
-                                                Rodovia de santo andre</h5>
+                                            <h5 style="margin-bottom: 15px;font-weight: bold;">{{ $r->provi_1 }}</h5>
                                             <span>Partindo para</span>
-                                            <h5 style="font-weight: bold;">{{ $r->provi_2 }} - RJ</h5>
+                                            <h5 style="font-weight: bold;">{{ $r->provi_2 }}</h5>
                                         </div>
                                     </div>
                                     <div class="rodape">
@@ -326,7 +169,7 @@
                                             </h4>
                                         </div>
                                         <button class="btn-conf">
-                                            <a href="{{ route('passagem', [$r->idPartida, $r->idDestino]) }}">Conferir
+                                            <a href="{{ route('passagem', [$r->local_partida, $r->local_destino]) }}">Conferir
                                                 oferta <i class="fa fa-arrow-right"></i></a>
                                         </button>
                                     </div>
@@ -365,7 +208,7 @@
         </div>
     </div>
     -->
-    <div class="travel_top" style="margin-bottom: 40px">
+    {{-- <div class="travel_top" style="margin-bottom: 40px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -414,7 +257,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     <div class="travel_variation_area">
@@ -515,6 +358,21 @@
     </div>
     -->
     <!-- /testimonial_area  -->
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <img src="{{ asset('img/image-bottom1.jpg') }}" class="image-bottom" alt="">
+            </div>
+            <div class="col-12 col-md-6">
+                <img src="{{ asset('img/image-bottom2.jpg') }}" class="image-bottom img2" alt="">
+            </div>
+        </div>
+
+    </div>
+
 
     <!-- Collapse -->
 

@@ -1,0 +1,8 @@
+
+.info-passageiro {
+    display: flex;
+    justify-content: space-between;
+}
+.info-passageiro p{
+    font-size: 10pt;
+}

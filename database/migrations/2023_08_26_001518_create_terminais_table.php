@@ -17,7 +17,9 @@ return new class extends Migration
             $table->increments("id");
             $table->string("nome");
             $table->integer("agencia_id")->unsigned();
+            $table->integer("destino_id")->unsigned();
             $table->timestamps();
+            $table->foreign('destino_id')->references('id')->on('destinos')->onDelete('cascade');
             $table->foreign("agencia_id")->references("id")->on("agencias")->onDelete("cascade");
         });
     }

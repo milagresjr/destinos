@@ -14,70 +14,9 @@
 
             <!-- Texto no background -->
 
-            <!-- where_togo_area_start  -->
-            <div class="where_togo_area form-pesquisa shadow">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-3">
-                            <div class="form_area">
-                                <h3 style="color: #040e27; text-align: center;">Ache sua passagem</h3>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="search_wrap">
-                                <form class="search_form" action="{{ url('/search/passagem/') }}">
-                                <!--    
-                                    <div class="input_field">
-                                        <i class="fa fa-calendar-o icon-input"> </i>
-                                        <input id="" type="date" class="form-control data-viagem date-input" name="data" placeholder="Date">
-                                    </div>
-                                    <div class="input_field">
-                                        <i class="fa fa-circle-o icon-input"> </i>
-                                        <input id="partindo_de" class="form-control data-viagem" name="partindo_de" placeholder="Partindo de" >
-                                        {{ csrf_field() }}
-                                        <div id="listaPartindo" style="position: relative;">
-                                        </div>
-                                    </div>
-                                    <div class="input_field">
-                                        <i class="fa fa-map-marker icon-input icon-indo-para"> </i>
-                                        
-                                    </div>
-                                -->
-                                    <div class="input_field">
-                                        <i class="fa fa-calendar-o icon-input"> </i>
-                                        <input id="datepicker" placeholder="Data de ida" name="data">
-                                    </div>
-                                    <div class="input_field">
-                                        <i class="fa fa-circle-o icon-input"> </i>
-                                        <select name="partindo_de">
-                                            <option data-display="Origem">Origem</option>
-                                         @if(isset($destinos))   @foreach ($destinos as $d)
-                                            <option value="{{$d->nome}}">{{$d->nome}}</option>
-                                            @endforeach @endif
-                                        </select>
-                                    </div>
-                                    <div class="input_field">
-                                        <i class="fa fa-map-marker icon-input icon-indo-para"> </i>
-                                        <select name="indo_para">
-                                            <option data-display="Destino">Destino</option>
-                                            @if(isset($destinos))    @foreach ($destinos as $d)
-                                            <option value="{{$d->nome}}">{{$d->nome}}</option>
-                                            @endforeach @endif
-                                        </select>
-                                    </div>
-                                    <div class="search_btn">
-                                        <button class="boxed-btn4 " type="submit" >
-                                            <i class="fa fa-search"> </i>
-                                            Buscar
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- where_togo_area_end  -->
+            {{-- FORM PESQUISA --}}
+            @include('layouts.includes.form-pesquisa')
+            {{-- FIM FORM-PESQUISA --}}
 
     </div>
 

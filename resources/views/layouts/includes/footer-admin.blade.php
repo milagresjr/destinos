@@ -7,10 +7,10 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      {{-- Anything you want --}}
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2023 <a href="#">Destino.ao</a>.</strong> Todos direitos reservados.
   </footer>
 
   <!-- /.control-sidebar -->
@@ -28,6 +28,8 @@
 <script src="{{ asset('admin/bootstrap/js/bootstrap.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('admin/dist/js/app.min.js') }}"></script>
+
+<script src="{{ asset('admin/dist/js/changeMenu.js') }}"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

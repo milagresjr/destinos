@@ -46,7 +46,7 @@ class ClientController extends Controller
             //LOGADO
             return response()->json(['success'=>true]);
         }else{
-            //N�O LOGADO
+            //NÃO LOGADO
             return response()->json(['success'=>false]);
         }
     }

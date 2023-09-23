@@ -2,9 +2,9 @@
 
 @section("conteudo-admin")
 
-@section("titulo-page", "Pagina Inicial ")
-@section("breadcrumb1", "Level")
-@section("breadcrumb2", "Here")
+@section("titulo-page", "Dashboard ")
+@section("breadcrumb1", "Home")
+@section("breadcrumb2", "Dashboard")
 
       <!-- Your Page Content Here -->   
     
