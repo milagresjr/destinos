@@ -71,10 +71,15 @@ Route::get('designBilhete', function() {
     return view('bilhete');
 });
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth:client'])->group(function(){
 
-    Route::any('travel/{idViagem}', 'App\Http\Controllers\PassageController@escolher_poltrona')->name("rota_especifica");
-    Route::get('/checkout/{idViagem}/{preco}/{arrayPoltronas}', 'App\Http\Controllers\PassageController@checkout')->name("checkout");
+    Route::get('/myaccount',[ClientController::class, 'index'])->name('my_account');
+    Route::get('/mypassagens',[ClientController::class, 'passagens'])->name('my_passagens');
+    Route::get('/edit-myprofile',[ClientController::class, 'editPerfil'])->name('edit_profile');
+    Route::get('/alt-password',[ClientController::class, 'altSenha'])->name('alt_senha');
+    
+    Route::any('/travel/{idViagem}', [PassageController::class, 'escolher_poltrona'])->name("rota_especifica");
+    Route::get('/checkout/{idViagem}/{preco}/{arrayPoltronas}', [PassageController::class, 'checkout'])->name("checkout");
 
 });
 

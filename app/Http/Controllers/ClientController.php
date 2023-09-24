@@ -5,9 +5,34 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\Viagem;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
+    public function index() {
+        
+        return view('myaccount');
+
+    }
+
+    public function passagens() {
+
+        return view('mypassagens');
+
+    }
+
+    public function editPerfil() {
+        $id = Auth::guard('client')->user()->id;
+        $client = Client::find($id)->get();
+        // dd($client[0]->nome);
+        return view('edit-perfil', compact('client'));
+        
+    }
+
+    public function altSenha() {
+        return view('alte-senha');
+    }
+
     public function cadastrar(Request $request)
     {
         $nome = $request->nome;

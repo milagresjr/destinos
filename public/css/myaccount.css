@@ -1,0 +1,121 @@
+:root {
+    --main-color: #FF006F;
+}
+
+.container-myaccount {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 50px 0;
+}
+.side-menu-myaccount {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 300px;
+    margin-top: 30px;
+}
+.side-menu-myaccount a {
+    color: #000;
+    padding: 10px 40px;
+    /* background: blue; */
+    transition: all 0.5s;
+}
+
+.side-menu-myaccount a i {
+    font-size: 18pt;
+}
+.side-menu-myaccount a.active,
+.side-menu-myaccount a.active i {
+    color: var(--main-color);
+}
+.side-menu-myaccount a:hover,
+.side-menu-myaccount a:hover i {
+    color: var(--main-color);
+}
+
+.side-menu-myaccount a:hover {
+   color: var(--main-color);
+}
+
+.side-main-myaccount {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-main-myaccount header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    background: var(--main-color);
+    width: 600px;
+}
+
+.area-client {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar i {
+    font-size: 18pt;
+    /* color: orangered; */
+    color: var(--main-color);
+}
+
+.info-client {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #fff;
+}
+
+.side-main-myaccount header a {
+    color: var(--main-color);
+    background: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+    
+    .container-myaccount {
+        flex-direction: column;
+        margin: 10px 20px;
+    }
+    .side-menu-myaccount {
+        width: 100%;
+    }
+    .side-main-myaccount header {
+        padding: 30px 10px;
+        width: 100%;
+        flex-direction: column;
+    }
+    .area-client {
+        flex-direction: column;
+        align-items: center;
+    }
+    .info-client {
+        align-items: center;
+    }
+
+    .info-client span {
+        font-weight: 600;
+    }
+    
+    .side-main-myaccount header a {
+        margin-top: 20px;
+    }
+}

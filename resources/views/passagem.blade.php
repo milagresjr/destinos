@@ -130,6 +130,7 @@
     let data = document.getElementById("dataatual");
     data.innerText = diadesemana[dataAtual.getDay()] + ",  " + dataAtual.getDate() + " de " + meses[dataAtual.getMonth()] + " de " + dataAtual.getFullYear();
    
+    
 </script>
 
 @endsection

@@ -3,7 +3,7 @@ $(document).ready(function(){
     $(function(){
         $("#rota-autocomplete-search").autocomplete({
             source: "/rota/auto-complete",
-            minLength: 1,
+            minLength: 0,
             select: function(event, ui){
                 //
             }
@@ -23,7 +23,15 @@ $(document).ready(function(){
                 }
             });
         },
-        minLength: 1
+        minLength: 0
+    });
+
+    $("#input-autocomplete").on('focus', function(){
+        $(this).autocomplete('search',' ');
+    });
+
+    $("#rota-autocomplete-search").on('focus', function(){
+        $(this).autocomplete('search',' ');
     });
 
 });

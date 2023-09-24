@@ -1,0 +1,18 @@
+.header {
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+a.login {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media (max-width: 700px) {
+    a.login span{
+        display: none;
+    }
+    a.login i {
+        font-size: 24pt;
+    }
+}

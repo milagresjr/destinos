@@ -1,0 +1,29 @@
+
+.side-menu-myaccount {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 300px;
+    height: 200px;
+    margin-top: 30px;
+}
+
+.edit-area  {
+    padding: 30px 20px;
+    background: #fff;
+    width: 600px;
+}
+
+.btn-salvar-perfil{
+    width: 100%;
+}
+
+@media (max-width: 700px) {
+    .side-menu-myaccount {
+        width: 100%;
+    }
+    .edit-area  {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}

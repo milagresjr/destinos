@@ -12,6 +12,9 @@
 11- Tentar um auto complete novamente
 12- Arranjar ja o form de busca de passagem
 13- Concluir a pagina de agencia especifica
+=========NOVAS MUDANCAS=============
+1- Cadastrar Onibus
+2- Ao cadastrar as rotas tem que informar seus precos
 
 ===========CRIAR A PARTE ADMIN============
 1- Listar todas as viagens

@@ -1,0 +1,120 @@
+:root {
+    --main-color: #FF006F;
+}
+
+.container-mypassagens {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 50px 0;
+}
+.side-menu-mypassagens {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 300px;
+    margin-top: 30px;
+}
+.side-menu-mypassagens a {
+    color: #000;
+    padding: 10px 40px;
+    /* background: blue; */
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.side-menu-mypassagens a i {
+    font-size: 18pt;
+}
+.side-menu-mypassagens a.active,
+.side-menu-mypassagens a.active i {
+    color: var(--main-color);
+}
+.side-menu-mypassagens a:hover,
+.side-menu-mypassagens a:hover i {
+    color: var(--main-color);
+}
+
+.side-main-mypassagens {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-main-mypassagens header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    background: #fff;
+    width: 600px;
+}
+
+.area-client {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar i {
+    font-size: 18pt;
+    /* color: orangered; */
+    color: var(--main-color);
+}
+
+.sem-viagens {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #000;
+    width: 300px;
+}
+
+.sem-viagens h4 {
+    font-weight: bold;
+}
+
+.sem-viagens span {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.side-main-mypassagens header a {
+    color: #fff;
+    background: var(--main-color);
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+    
+    .container-mypassagens {
+        flex-direction: column;
+        margin: 10px 20px;
+    }
+    .side-menu-mypassagens {
+        width: 100%;
+    }
+    .side-main-mypassagens header {
+        padding: 30px 10px;
+        width: 100%;
+        flex-direction: column;
+    }
+    .sem-viagens {
+        padding: 15px;
+    }
+    .side-main-mypassagens header a {
+        margin-top: 20px;
+    }
+}

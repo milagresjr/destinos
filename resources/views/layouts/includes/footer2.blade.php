@@ -35,7 +35,8 @@
                 potSelecionada.toggleClass('selecionado');
                 selectedSeats--;
                 preco = preco - precoViagem;
-                lblpreco.text(preco+' Kz');
+                let novoPreco = formatarPreco(preco);
+                lblpreco.text(novoPreco+' Kz');
                 //Token 
                 var _token = $('input[name="_token"]').val();
                 //Requisicao ajax para eliminar do BD uma poltrona selecionada temporariamente
@@ -102,20 +103,34 @@
                 if (p.hasClass('selecionado')) {
                   selectedSeats++;
                   preco = selectedSeats * precoViagem;
-                  lblpreco.text(preco+' Kz');
+                  let novoPreco = formatarPreco(preco);
+                  lblpreco.text(novoPreco+' Kz');
                 } else {
                   selectedSeats--;
                   preco = preco - precoViagem;
-                  lblpreco.text(preco+' Kz');
+                  let novoPreco = formatarPreco(preco);
+                  lblpreco.text(novoPreco+' Kz');
                 }
               } else if (p.hasClass('selecionado')) {
                 p.toggleClass('selecionado');
                 selectedSeats--;
                 preco = preco - precoViagem;
-                lblpreco.text(preco+' Kz');
+                let novoPreco = formatarPreco(preco);
+                lblpreco.text(novoPreco+' Kz');
               } else if (selectedSeats >= 3) {
                   swal('Oops!','Você só pode escolher 3 poltronas','error');
               }
+      }
+
+      function formatarPreco(precoFormat) {
+
+        let precoForm = precoFormat.toLocaleString('pt-AO',{
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+
+        return precoForm;
+
       }
   
       function addPoltronaLista(valorPoltrona)

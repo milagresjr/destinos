@@ -19,7 +19,7 @@ class BilheteController extends Controller
             'name' => 'John Simon',
             'email' => 'john@example.com',
         ];
-        $content = 'Texto para o QR Code';
+        $content = 'Outro texto...';
         $data['qrcode'] = QrCode::format('png')->size(200)->generate($content);
         // $pdf = \PDF::loadView('bilhete', $data);
 
