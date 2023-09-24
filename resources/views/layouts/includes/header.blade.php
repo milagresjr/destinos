@@ -109,7 +109,7 @@
                 </li>
                 @if(\Auth::guard('client')->user())
                   <li class="nav-item">
-                    <a class="nav-link" href="#"> <i class="fa fa-user-circle icon"></i> Minha Conta</a>
+                    <a class="nav-link" href="{{ route('my_account') }}"> <i class="fa fa-user-circle icon"></i> Minha Conta</a>
                   </li>
                 @endif
                 {{-- <li class="nav-item">

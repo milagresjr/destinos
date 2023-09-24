@@ -1,7 +1,7 @@
 
-.fundo-branco{
+.fundo-white{
     background-color: #fff;
-    padding-inline: 20px;
+    padding: 40px;
 }
 
 .form-passageiro .input-control{
@@ -17,7 +17,7 @@
     padding: 40px;
 }
 .f-pag h3{
-    margin-left: 80px;
+    /* margin-left: 80px; */
 }
 @media screen and (max-width: 579px) {
     .f-pag h3{

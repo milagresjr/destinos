@@ -16,18 +16,19 @@
     <div class="side-main-myaccount">
         <h4>Alterar senha</h4>
         <div class="edit-area shadow">
-            <form action="#">
+            <form action="{{ route('update_senha') }}" method="post">
+                @csrf
                 <div class="form-group">
-                    <label for="nome">Senha actual*</label>
-                    <input type="password" name="nome" id="nome" class="form-control">
+                    <label for="senhaAtual">Senha actual*</label>
+                    <input type="password" name="senha_atual" id="senhaAtual" class="form-control">
                 </div>
                 <div class="form-group mt-3">
-                    <label for="email">Senha nova*</label>
-                    <input type="password" name="email" id="email" class="form-control" readonly>
+                    <label for="senhaNova">Senha nova*</label>
+                    <input type="password" name="senha_nova" id="senhaNova" class="form-control">
                 </div>
                 <div class="form-group mt-3">
-                    <label for="telefone">Repita senha nova*</label>
-                    <input type="password" name="telefone" id="telefone" class="form-control">
+                    <label for="confiSenhaNova">Confirme a senha nova*</label>
+                    <input type="password" name="confi_senha_nova" id="confiSenhaNova" class="form-control">
                 </div>
                 <button type="submit" value="Salvar" class="btn btn-success btn-salvar-perfil mt-3">
                     <i class="fa fa-spinner" aria-hidden="true"></i>

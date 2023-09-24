@@ -186,6 +186,40 @@
   
   </script>
   
+@if(session('client-edit-success'))
+    <script>
+        var msg ='Dados alterados com sucesso!'
+        swal('Sucesso!',msg,'success');
+    </script>
+@endif
+
+@if(session('client-edit-danger'))
+    <script>
+        var msg ='Dados não alterados!'
+        swal('oops!',msg,'error');
+    </script>
+@endif
+
+@if(session('senhas-nao-correspondem'))
+    <script>
+        var msg ='As senhas não correspodem!'
+        swal('oops!',msg,'error');
+    </script>
+@endif
+
+@if(session('senha-atual-errada'))
+    <script>
+        var msg ='A senha atual está errada!'
+        swal('oops!',msg,'error');
+    </script>
+@endif
+
+@if(session('senha-edit-success'))
+    <script>
+        var msg ='Senha atualizada com sucesso!'
+        swal('Sucesso!',msg,'success');
+    </script>
+@endif
 
 </body>
 </html>

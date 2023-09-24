@@ -22,7 +22,7 @@
                     Aproveite as ofertas, descontos e faça sua pesquisa aos melhores destinos.
                 </span>
             </div>
-            <a href="#" class="button-edit-profile">
+            <a href="{{ route('home') }}" class="button-edit-profile">
              <i class="fa fa-search"></i>  Procurar passagens
             </a>
         </header>

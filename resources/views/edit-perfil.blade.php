@@ -16,7 +16,8 @@
     <div class="side-main-myaccount">
         <h4>Editar perfil</h4>
         <div class="edit-area shadow">
-            <form action="#">
+            <form method="post" action="{{ route('update_client') }}">
+                @csrf
                 <div class="form-group">
                     <label for="nome">Name*</label>
                     <input type="text" name="nome" id="nome" value="{{ $client[0]->nome }}" class="form-control">
@@ -27,7 +28,7 @@
                 </div>
                 <div class="form-group mt-3">
                     <label for="telefone">Telefone*</label>
-                    <input type="tel" name="telefone" id="telefone" value="{{ $client[0]->telefone }}" class="form-control">
+                    <input type="tel" name="telefone" id="telefone" value="{{ $client[0]->telefone }}" class="form-control" min="9" max="9">
                 </div>
                 <button type="submit" value="Salvar" class="btn btn-success btn-salvar-perfil mt-3">
                     <i class="fa fa-spinner" aria-hidden="true"></i>

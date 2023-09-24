@@ -21,8 +21,8 @@
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="info-client">
-                    <span class="name">Milagres Junior</span>
-                    <span>milagres@gmail.com</span>
+                    <span class="name">{{ $client->nome }}</span>
+                    <span>{{ $client->email }}</span>
                 </div>
             </div>
             <a href="{{ route('edit_profile') }}" class="button-edit-profile">

@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\Viagem;
+use Illuminate\Hashing\BcryptHasher;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ClientController extends Controller
 {
     public function index() {
         
-        return view('myaccount');
+        $client = Auth::guard('client')->user();
+        return view('myaccount', compact('client'));
 
     }
 
@@ -31,6 +34,60 @@ class ClientController extends Controller
 
     public function altSenha() {
         return view('alte-senha');
+    }
+
+    public function update(Request $request) {
+
+        $idClient = Auth::guard('client')->user()->id;
+
+        $request->validate([
+            'nome' => 'string',
+            'email' => 'string',
+            'telefone' => 'numeric'
+        ]);
+
+        $nome = $request->nome;
+        $email = $request->email;
+        $telefone = $request->telefone;
+
+        $update = Client::find($idClient)->update([
+            'nome' => $nome,
+            'email' => $email,
+            'telefone' => $telefone
+        ]);
+
+        return ($update) ? back()->with('client-edit-success',' Sucesso! ')
+        : back()->with('client-edit-danger','Error');
+
+    }
+
+    public function updateSenha(Request $request) {
+
+        $client = Auth::guard('client')->user();
+
+        $senhaAtual = $request->senha_atual;
+        $senhaNova = $request->senha_nova;
+        $confiSenhaNova = $request->confi_senha_nova;
+
+        if(Hash::check($senhaAtual, $client->senha)) {
+            
+            if($senhaNova == $confiSenhaNova) {
+
+                $update = Client::find($client->id)->update([
+                    'senha' => bcrypt($senhaNova)
+                ]);
+
+                return ($update) ? back()->with('senha-edit-success',' Sucesso! ')
+                : back()->with('senha-edit-danger','Error');
+
+            } else {
+                return back()->with('senhas-nao-correspondem',' Error! ');
+            }
+
+        } else {
+                return back()->with('senha-atual-errada',' Error! ');
+        }
+
     }
 
     public function cadastrar(Request $request)

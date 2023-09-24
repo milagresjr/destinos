@@ -78,9 +78,12 @@ Route::middleware(['auth:client'])->group(function(){
     Route::get('/edit-myprofile',[ClientController::class, 'editPerfil'])->name('edit_profile');
     Route::get('/alt-password',[ClientController::class, 'altSenha'])->name('alt_senha');
     
-    Route::any('/travel/{idViagem}', [PassageController::class, 'escolher_poltrona'])->name("rota_especifica");
-    Route::get('/checkout/{idViagem}/{preco}/{arrayPoltronas}', [PassageController::class, 'checkout'])->name("checkout");
+    Route::any('/travel/{idViagem}', [App\Http\Controllers\PassageController::class, 'escolher_poltrona'])->name("rota_especifica");
+    Route::get('/checkout/{idViagem}/{preco}/{arrayPoltronas}', [App\Http\Controllers\PassageController::class, 'checkout'])->name("checkout");
 
+    Route::post('/update-client',[ClientController::class, 'update'])->name('update_client');
+
+    Route::post('/update-password',[ClientController::class, 'updateSenha'])->name('update_senha');
 });
 
 //Route::get('/passagem/{p_inicial}/{destino}',[PassageController::class, 'index'])->name('passagem');
