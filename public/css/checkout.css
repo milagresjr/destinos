@@ -16,11 +16,94 @@
     margin-top: 15px;
     padding: 40px;
 }
-.f-pag h3{
-    /* margin-left: 80px; */
+.formas-pagamento {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
 }
-@media screen and (max-width: 579px) {
-    .f-pag h3{
-        margin-left: -20px;
+.transferencia,
+.mcx {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.transferencia span,
+.mcx span {
+    font-size: 10pt;
+}
+.formas-pagamento .active {
+    background: #FFF1F0;
+    border-color: #FF006F;
+}
+
+.info-bank {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    flex-wrap: wrap;
+}
+.info-bank p {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.obs {
+    color: #000;
+    font-size: 11pt;
+}
+
+.btn-comprar {
+    padding: 15px 60px;
+    float: right;
+    background: #FF006F;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.disabled {
+    background: rgba(0, 0, 0, 0.2);
+    color:  rgba(0, 0, 0, 0.6);;
+    border: none;
+}
+.disabled:hover {
+    background:  rgba(0, 0, 0, 0.2);
+    color:  rgba(0, 0, 0, 0.6);;
+    border: none;
+}
+
+.comprar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.comprar a {
+    color: #000;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 700px) {
+    .transferencia,
+    .mcx {
+        padding: 5px;
     }
+    .transferencia span,
+    .mcx span {
+        font-size: 9pt;
+    }
+
+    .btn-comprar {
+        width: 100%;
+        margin-top: 5px;
+    }
+    .comprar p {
+        font-size: 9pt;
+    }
+
 }

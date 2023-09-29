@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="{{ asset('css/checkout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/myaccount.css') }}">
     <link rel="stylesheet" href="{{ asset('css/mypassagens.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/edit-perfil.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/edit-perfil.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('css/finish-buy.css') }}"> 
 </head>
 <body style="background-color: #F0F1F5;">
     

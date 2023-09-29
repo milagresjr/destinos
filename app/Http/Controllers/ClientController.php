@@ -20,7 +20,10 @@ class ClientController extends Controller
 
     public function passagens() {
 
-        return view('mypassagens');
+        $data = [];
+        $data['reservas'] = \DB::select("SELECT r.id,r.viagem_id,r.numero_poltrona,r.preco_total,r.nome_passageiro,r.idade_passageiro,r.status,r.created_at,c.nome AS nome_cliente 
+        FROM reservas r JOIN clients c ON r.client_id=c.id");
+        return view('mypassagens',$data);
 
     }
 
@@ -87,6 +90,17 @@ class ClientController extends Controller
         } else {
                 return back()->with('senha-atual-errada',' Error! ');
         }
+
+    }
+
+    public function cancelarPassagem($idReserva) {
+
+        $update = \DB::table("reservas")->where('id',$idReserva)->update([
+            'status' => 'Cancelado'
+        ]);
+
+        return ($update) ? back()->with('reserva-cancel','cancel')
+        : back()->with('reserva-not-cancel','cancel');
 
     }
 

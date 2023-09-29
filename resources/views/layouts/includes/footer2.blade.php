@@ -1,8 +1,11 @@
 
 {{-- <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script> --}}
 <script src="{{ asset('js/code.jquery.com_jquery-3.7.1.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
 {{-- <script src="{{ asset('js/escolhaPoltraa.js') }}"></script> --}}
 <script src="{{ asset('js/sweetalert.min.js') }}"></script>
+<script src="{{ asset('js/checkout.js') }}"></script>
+<script src="{{ asset('js/mypassagens.js') }}"></script>
 
 <script>
 
@@ -163,14 +166,14 @@
 
   
       $('#btContinuarReserva').click(function(){
-          var idViagem = {{ isset($_GET["idViagem"])?$_GET["idViagem"]:0 }} 
+          // var idViagem = {{ isset($_GET["idViagem"])?$_GET["idViagem"]:0 }} 
+          var idViagem = $('#inputIdViagem').val();
           //alert('Poltronas selecionadas: '+listaDePOltronas);
-          var preco = lblpreco.text();
           
           const arrayString = JSON.stringify(listaDePoltronas);
           const arrayCodificado = encodeURIComponent(arrayString);
           //alert(arrayCodificado);
-          window.location = '/checkout/'+idViagem+'/'+preco+'/'+arrayCodificado;
+          window.location = '/buy/checkout/'+idViagem+'/'+arrayCodificado;
       });
       
 
@@ -220,6 +223,14 @@
         swal('Sucesso!',msg,'success');
     </script>
 @endif
+
+@if(session('reserva-cancel'))
+    <script>
+        var msg = 'Reserva cancelada com sucesso!';
+        swal('Sucesso!',msg,'success');
+    </script>
+@endif
+
 
 </body>
 </html>

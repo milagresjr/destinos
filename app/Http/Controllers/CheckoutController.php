@@ -22,27 +22,39 @@ class CheckoutController extends Controller
         {
             $nomePassageiro = $request->input("nome_passageiro$i");
             $numPoltrona = $request->input("num_poltrona$i");
-            $precoTotal = $request->input("precoTotal");
+            $precoViagem = $request->input("precoTotal");
             $idade = $request->input("idade$i");
             $idCliente = \Auth::guard('client')->user()->id;
             $idViagem = $request->input("idViagem");
+            $formaPag = $request->input("forma-pag");
+            $status = "Aguardando Pagamento";
+
+            $precoTotal = $precoViagem * $qtdPass;
 
             $insert = Reserva::create([
                 'nome_passageiro'=>$nomePassageiro,
                 'numero_poltrona'=>$numPoltrona,
-                'idade'=>$idade,
-                'preco_total'=>$precoTotal,
+                'idade_passageiro'=>$idade, 
+                'preco_total'=> $precoTotal,
                 'client_id'=>$idCliente,
-                'viagem_id'=>$idViagem
+                'viagem_id'=>$idViagem,
+                'status' => $status
             ]);
         }
 
         if($insert)
         {
-            return redirect()->route("home");
+            // return redirect()->route("home");
+            return view('finish');
         }else{
             return "Nao cadastrado!";
         }
+
+    }
+
+    public function finishBuy() {
+
+        return view('finish');
 
     }
 }

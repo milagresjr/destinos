@@ -5,6 +5,7 @@ use App\Http\Controllers\AgenciaController;
 use App\Http\Controllers\AutoCompleteController;
 use App\Http\Controllers\BilheteController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 /*use App\http\Controllers\{
     ClientController,
@@ -79,11 +80,16 @@ Route::middleware(['auth:client'])->group(function(){
     Route::get('/alt-password',[ClientController::class, 'altSenha'])->name('alt_senha');
     
     Route::any('/travel/{idViagem}', [App\Http\Controllers\PassageController::class, 'escolher_poltrona'])->name("rota_especifica");
-    Route::get('/checkout/{idViagem}/{preco}/{arrayPoltronas}', [App\Http\Controllers\PassageController::class, 'checkout'])->name("checkout");
+    Route::get('/buy/checkout/{idViagem}/{arrayPoltronas}', [App\Http\Controllers\PassageController::class, 'checkout'])->name("checkout");
 
     Route::post('/update-client',[ClientController::class, 'update'])->name('update_client');
 
     Route::post('/update-password',[ClientController::class, 'updateSenha'])->name('update_senha');
+
+    Route::get('/buy/finish', [CheckoutController::class, 'finishBuy'])->name('finish_buy');
+
+    Route::get('/mypassagens/cancelar/{idReserva}',[ClientController::class, 'cancelarPassagem'])->name('cancelar_passagem');
+    
 });
 
 //Route::get('/passagem/{p_inicial}/{destino}',[PassageController::class, 'index'])->name('passagem');

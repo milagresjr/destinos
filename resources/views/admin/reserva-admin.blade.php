@@ -15,11 +15,15 @@
 
         <thead>
           <tr role="row">
-            <th>ID</th>
-            <th>NUMERO POLTRONA</th>
+            <th>#</th>
+            <th>CODIGO DA VIAGEM</th>
+            <th>NOME DO CLIENTE</th>
+            <th>NUMERO DA POLTRONA</th>
             <th>PRECO TOTAL</th>
             <th>NOME DO PASSAGEIRO</th>
-            <th>IDADE</th>
+            <th>IDADE DO PASSAGEIRO</th>
+            <th>STATUS</th>
+            <th></th>
           </tr>
         </thead>
 
@@ -28,10 +32,25 @@
         <tbody>
           <tr role="row" class="odd">
             <td>{{ $r->id }}</td>
+            <td>{{ $r->viagem_id }}</td>
+            <td>{{ $r->nome_cliente }}</td>
             <td>{{ $r->numero_poltrona }}</td>
             <td>{{ number_format($r->preco_total,2,',','.') }} kz</td>
             <td>{{ $r->nome_passageiro }}</td>
-            <td>{{ $r->idade }}</td>
+            <td>{{ $r->idade_passageiro }}</td>
+            @if($r->status == "Aguardando Pagamento")
+            <td><strong style="color: blue;">{{ $r->status }}</strong></td>
+            @elseif($r->status == "Pago")
+            <td><strong style="color: green;">{{ $r->status }}</strong></td>
+            @else
+            <td><strong style="color: red;">{{ $r->status }}</strong></td>
+            @endif
+            <td>
+              <a href="#" class="btn btn-primary">
+                <i class="fa fa-eye"></i>
+                Ver Detalhes
+              </a>
+            </td>
           </tr>
         </tbody>
 

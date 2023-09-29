@@ -1,0 +1,10 @@
+.finish-buy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 i {
+    color: green;
+}

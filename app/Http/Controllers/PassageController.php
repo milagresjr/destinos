@@ -255,7 +255,7 @@ class PassageController extends Controller
         }
     }
 
-    public function checkout($idViagem,$preco,$arrayP)
+    public function checkout($idViagem,$arrayP)
     {
         $data = [];
         //$data['poltronas']
@@ -277,7 +277,7 @@ class PassageController extends Controller
 
         $arrayDecodificado = json_decode(urldecode($arrayP));
         $data['arrayDecode'] = $arrayDecodificado;
-        $data['precoTotal'] = $preco;
+        // $data['precoTotal'] = $preco;
         $data['idViagem'] = $idViagem;
 
         return view("checkout",$data);
