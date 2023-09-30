@@ -1,5 +1,8 @@
 <?php
 
+use App\Mail\BilheteMail;
+use Illuminate\Support\Facades\Mail;
+
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\AgenciaController;
 use App\Http\Controllers\AutoCompleteController;
@@ -137,7 +140,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/admin/home', [AdminController::class, 'index'])->name('admin.home');
 
-    Route::get('/admin/reservas', 'App\Http\Controllers\Admin\ReservaAdminController@index')->name('admin.reserva');
+    // Route::get('/admin/reservas', 'App\Http\Controllers\Admin\ReservaAdminController@index')->name('admin.reserva');
     // Route::get('/admin/travels', 'App\Http\Controllers\Admin\ViagemAdminController@index')->name('admin.viagem');
     // Route::get('/admin/destinys','App\Http\Controllers\Admin\DestinoAdminController@index')->name('admin.destino');
     // Route::get('/admin/routes', 'App\Http\Controllers\Admin\RotaAdminController@index')->name('admin.rota');
@@ -187,5 +190,28 @@ Route::middleware(['auth'])->group(function(){
         'update' => 'admin.viagem.update',
         'destroy' => 'admin.viagem.destroy'
     ]);
+
+    Route::resource('admin/reservas','App\Http\Controllers\Admin\ReservaAdminController')->names([
+        'index' => 'admin.reserva.index',
+        'create' => 'admin.reserva.create',
+        'store' => 'admin.reserva.store',
+        'show' => 'admin.reserva.show',
+        'edit' => 'admin.reserva.edit',
+        'update' => 'admin.reserva.update',
+        'destroy' => 'admin.reserva.destroy'
+    ]);
+
+    Route::get('/admin/reservas/cancelar/{codeReserva}','App\Http\Controllers\Admin\ReservaAdminController@cancelReserva')->name('admin.cancel.reserva');
+    Route::get('/admin/reservas/validar/{codeReserva}','App\Http\Controllers\Admin\ReservaAdminController@validarPagReserva')->name('admin.validar.reserva');
+    Route::get('/admin/bilhete/download/{codeReserva}',[BilheteController::class, 'downloadBilhete'])->name('admin.bilhete.download');
+
+});
+
+// Route::get('/send/mail',[ClientController::class, 'send_mail'])->name('send_email');
+
+
+Route::get('/send/mail',function(){
+
+    Mail::to('milagrestobjr@gmail.com')->send(new BilheteMail);
 
 });

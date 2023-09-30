@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Reserva;
+use App\Models\Admin\ReservaAdmin as Reserva;
 
 class CheckoutController extends Controller
 {
@@ -18,6 +18,8 @@ class CheckoutController extends Controller
         $n = 2;
         $qtdPass = $request->input("qtdPassageiro");
         //dd($qtdPass);
+        $codigoReserva = $this->gerarNewCode();
+        // dd($codigoReserva);
         for($i=1; $i<=$qtdPass; $i++)
         {
             $nomePassageiro = $request->input("nome_passageiro$i");
@@ -30,6 +32,8 @@ class CheckoutController extends Controller
             $status = "Aguardando Pagamento";
 
             $precoTotal = $precoViagem * $qtdPass;
+            
+            // dd($codigoReserva);
 
             $insert = Reserva::create([
                 'nome_passageiro'=>$nomePassageiro,
@@ -38,7 +42,8 @@ class CheckoutController extends Controller
                 'preco_total'=> $precoTotal,
                 'client_id'=>$idCliente,
                 'viagem_id'=>$idViagem,
-                'status' => $status
+                'status' => $status,
+                'codigo_reserva' => $codigoReserva
             ]);
         }
 
@@ -49,6 +54,31 @@ class CheckoutController extends Controller
         }else{
             return "Nao cadastrado!";
         }
+
+    }
+
+    public function gerarCodigo() {
+
+        // $caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $codigo = '';
+        for($i=0; $i<=4; $i++) {
+
+            $codigo .= $caracteres[rand(0,strlen($caracteres) -1)]; 
+
+        }
+
+        return $codigo;
+
+    }
+
+    public function gerarNewCode() {
+
+        do {
+            $code = $this->gerarCodigo();
+        }while(Reserva::where('codigo_reserva',$code)->exists());
+
+        return $code;
 
     }
 

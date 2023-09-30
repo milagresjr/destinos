@@ -31,10 +31,9 @@
 
 <script src="{{ asset('admin/dist/js/changeMenu.js') }}"></script>
 
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. Slimscroll is required when using the
-     fixed layout. -->
+<script src="{{ asset('js/sweetalert.min.js') }}"></script>
+<script src="{{ asset('admin/dist/js/custom-admin.js') }}"></script>
+
 <!-- DataTables -->
 <script src="{{ asset('admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
@@ -42,6 +41,8 @@
 <script src="{{ asset('admin/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
 <!-- FastClick -->
 <script src="{{ asset('admin/plugins/fastclick/fastclick.js') }}"></script>
+
+
 
 <!-- page script -->
 

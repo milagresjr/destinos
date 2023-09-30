@@ -40,7 +40,7 @@
             <tr class="info-passageiro" style="width: 100%;">
                 <td colspan="1" style="border: 0px solid #000; width: 50%;">
                     <h5>Passageiro</h5>
-                    <p>{{ $name }}</p>
+                    <p>{{ $nome_passageiro }}</p>
                 </td>
             
                 <td colspan="2" style="border: 0px solid #000; width: 50%; text-align: right;">

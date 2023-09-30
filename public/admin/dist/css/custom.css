@@ -1,0 +1,15 @@
+
+.container-reserva {
+    padding: 20px;
+}
+
+.info-passag {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.info-passag h5 {
+    font-weight: 600;
+}

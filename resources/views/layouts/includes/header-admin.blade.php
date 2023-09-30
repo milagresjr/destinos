@@ -26,6 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   -->
   <link rel="stylesheet" href="{{ asset('admin/dist/css/skins/skin-blue.min.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/dist/css/globalAdminStyle.css') }}">
+  <link rel="stylesheet" href="{{ asset('admin/dist/css/custom.css') }}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -265,7 +266,7 @@ desired effect
         <li class="item-menu terminais"><a href="{{ route('admin.terminal.index') }}"><i class="fa fa-link"></i> <span>Terminais</span></a></li>
         <li class="item-menu rotas"><a href="{{ route('admin.rota.index') }}"><i class="fa fa-link"></i> <span>Rotas</span></a></li>
         <li class="item-menu viagens"><a href="{{ route('admin.viagem.index') }}"><i class="fa fa-link"></i> <span>Viagens</span></a></li>
-        <li class="item-menu reservas"><a href="{{ route('admin.reserva') }}"><i class="fa fa-link"></i> <span>Reservas</span></a></li>
+        <li class="item-menu reservas"><a href="{{ route('admin.reserva.index') }}"><i class="fa fa-link"></i> <span>Reservas</span></a></li>
         {{-- <li class="item-menu treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Provincias</span>
             <span class="pull-right-container">

@@ -66,7 +66,7 @@
         Ver Detalhes
       </a>
       @if($r->status == "Aguardando Pagamento")
-      <button id="btnCancelarReserva" data-id-reserva="{{ $r->id }}" class="btn btn-danger">
+      <button id="btnCancelar" data-id-reserva="{{ $r->id }}" class="btn btn-danger btnCancelarReserva">
         <i class="fa fa-cancel"></i>
         Cancelar Reserva
       </button>

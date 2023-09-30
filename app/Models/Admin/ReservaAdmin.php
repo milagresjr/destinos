@@ -9,5 +9,5 @@ class ReservaAdmin extends Model
 {
     use HasFactory;
     protected $table = "reservas";
-    protected $fillable = ['id','numero_poltrona','preco_total','client_id','viagem_id','nome_passageiro','idade_passageiro'];
+    protected $fillable = ['id','numero_poltrona','preco_total','client_id','viagem_id','nome_passageiro','idade_passageiro','codigo_reserva','status'];
 }

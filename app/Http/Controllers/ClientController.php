@@ -8,6 +8,11 @@ use App\Models\Viagem;
 use Illuminate\Hashing\BcryptHasher;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use Symfony\Component\Mailer\Mailer;
+use Symfony\Component\Mailer\Transport;
+
 
 class ClientController extends Controller
 {
@@ -169,6 +174,25 @@ class ClientController extends Controller
         }
         return $n;
     */
+    }
+
+    public function send_mail() {
+
+        try {
+            $email = (new \Symfony\Component\Mime\Email())
+                ->to('destinatario@example.com')
+                ->subject('Olá, Mundo!')
+                ->text('Olá, Mundo! Este é um email simples do Laravel.');
+    
+            $transport = Transport::fromDsn(config('mail.mailers.smtp.transport'));
+            $mailer = new Mailer($transport);
+            $mailer->send($email);
+    
+            return "Email enviado com sucesso!";
+        } catch (TransportExceptionInterface $e) {
+            return "Erro ao enviar o email: " . $e->getMessage();
+        }
+
     }
 
     public function getApi() {

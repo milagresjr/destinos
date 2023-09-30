@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::table('reservas', function (Blueprint $table) {
             $table->string("status")->nullable();
+            $table->string("codigo_reserva")->nullable();
         });
     }
 

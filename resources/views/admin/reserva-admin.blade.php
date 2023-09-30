@@ -16,12 +16,10 @@
         <thead>
           <tr role="row">
             <th>#</th>
-            <th>CODIGO DA VIAGEM</th>
+            <th>DATA DA RESERVA</th>
             <th>NOME DO CLIENTE</th>
-            <th>NUMERO DA POLTRONA</th>
             <th>PRECO TOTAL</th>
-            <th>NOME DO PASSAGEIRO</th>
-            <th>IDADE DO PASSAGEIRO</th>
+            <!-- <th>NUMERO DE PASSAGEIROS</th> -->
             <th>STATUS</th>
             <th></th>
           </tr>
@@ -31,13 +29,11 @@
 
         <tbody>
           <tr role="row" class="odd">
-            <td>{{ $r->id }}</td>
-            <td>{{ $r->viagem_id }}</td>
+            <td>#{{ $r->codigo_reserva }}</td>
+            <td>{{ $r->created_at }}</td>
             <td>{{ $r->nome_cliente }}</td>
-            <td>{{ $r->numero_poltrona }}</td>
             <td>{{ number_format($r->preco_total,2,',','.') }} kz</td>
-            <td>{{ $r->nome_passageiro }}</td>
-            <td>{{ $r->idade_passageiro }}</td>
+            
             @if($r->status == "Aguardando Pagamento")
             <td><strong style="color: blue;">{{ $r->status }}</strong></td>
             @elseif($r->status == "Pago")
@@ -46,7 +42,7 @@
             <td><strong style="color: red;">{{ $r->status }}</strong></td>
             @endif
             <td>
-              <a href="#" class="btn btn-primary">
+              <a href="{{ route('admin.reserva.show', $r->codigo_reserva) }}" class="btn btn-primary">
                 <i class="fa fa-eye"></i>
                 Ver Detalhes
               </a>
