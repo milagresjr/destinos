@@ -116,6 +116,46 @@ class PassageController extends Controller
         return view('search',$data);
     }
 
+
+    public function searchDestinoPage($indo) {
+
+        $indo_id = DB::table("destinos")->where('nome','=',$indo)->get()[0]->id;
+
+        // $dataFormatada = date('Y-m-d',$dataPartida);
+
+        //dd($dataFormatada);
+        
+        $data = [];
+        
+        $data['destinos'] = \DB::select("SELECT d1.nome AS provi_1, d2.nome AS provi_2,t.data_partida,r.local_partida,
+        r.local_destino,t.hora_partida,t.hora_chegada,t.preco_bilhete,r.agencia_id,a.nome,a.logo AS fotoAgencia 
+        FROM destinos d1 INNER JOIN routes r ON d1.id=r.local_partida INNER JOIN destinos d2 ON d2.id=r.local_destino 
+        INNER JOIN travels t ON r.id=t.rota INNER JOIN agencias a ON r.agencia_id=a.id 
+        WHERE r.local_destino=$indo_id");
+        
+        $data['viagem_info'] = \DB::select("SELECT d1.nome AS provi_partida, d2.nome AS provi_destino,t.id AS idViagem,
+        r.local_partida,r.local_destino,t.data_partida,t.hora_partida,t.hora_chegada,t.preco_bilhete,r.agencia_id,
+        a.nome AS nomeAgencia,a.logo AS fotoAgencia FROM destinos d1 INNER JOIN routes r ON d1.id=r.local_partida 
+        INNER JOIN destinos d2 ON d2.id=r.local_destino INNER JOIN travels t ON t.rota=r.id 
+        INNER JOIN agencias a ON r.agencia_id=a.id 
+        WHERE r.local_destino=$indo_id");
+    
+        $data['viagem_info_pra_datas'] = \DB::select("SELECT d1.nome AS provi_partida, d2.nome AS provi_destino,t.id AS idViagem,
+        r.local_partida,r.local_destino,t.data_partida,t.hora_partida,t.hora_chegada,t.preco_bilhete,r.agencia_id,
+        a.nome AS nomeAgencia,a.logo AS fotoAgencia FROM destinos d1 INNER JOIN routes r ON d1.id=r.local_partida 
+        INNER JOIN destinos d2 ON d2.id=r.local_destino INNER JOIN travels t ON t.rota=r.id 
+        INNER JOIN agencias a ON r.agencia_id=a.id 
+        WHERE r.local_destino=$indo_id");
+    
+        $data['datas'] = \DB::select("SELECT DISTINCT t.data_partida FROM travels t INNER JOIN routes r ON t.rota=r.id WHERE r.local_destino=$indo_id ORDER BY t.data_partida ASC");
+
+        $data["rotas"] = \DB::select("SELECT d1.nome AS local_partida, d2.nome AS local_destino FROM routes r INNER JOIN destinos d1 ON d1.id=r.local_partida INNER JOIN destinos d2 ON d2.id=r.local_destino GROUP BY d1.nome,d2.nome");
+
+        $data['agencias'] = \DB::select("SELECT * FROM agencias");
+
+        return view('search',$data);
+    }
+
     public function filter(Request $request) {
 
         $minValue = $request->min_value;

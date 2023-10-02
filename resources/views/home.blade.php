@@ -74,15 +74,19 @@
                 @if($destinos)
                     @foreach($destinos as $destino)
                 <div class="col-lg-4 col-md-6">
+                    <a href="{{ route('search_passagem_com_um_param', $destino->nome ) }}">
                     <div class="single_destination">
                         <div class="thumb thumb2">
+                        
                             <img src="{{ asset('storage/destinos/'.$destino->foto.'') }}" alt="Luanda">
+                       
                         </div>
                         <div class="content">
                             <p class="d-flex align-items-center">{{ $destino->nome }}</p>
 
                         </div>
                     </div>
+                </a>
                 </div>
                     @endforeach
                 @endif

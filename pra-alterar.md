@@ -21,5 +21,22 @@
 <!-- Novos -->
 2- Criar o CRUD de Agencias
 
-token
+token github
 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
+
+
+MAIL_MAILER=smtp
+MAIL_HOST=mail.multisocial-ao.com
+MAIL_PORT=465
+MAIL_USERNAME=b7af4239e1145b
+MAIL_PASSWORD=cb9aac1119745a
+
+MAIL_MAILER=smtp
+MAIL_HOST=mail.multisocial-ao.com
+MAIL_PORT=465
+MAIL_USERNAME=multiso2
+MAIL_PASSWORD=z+bP5K(2cVhM16 #Nh912yn!6
+
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS="destino.geral@multisocial-ao.com"
+MAIL_FROM_NAME="Destino.ao"

@@ -90,8 +90,9 @@ Route::middleware(['auth:client'])->group(function(){
     Route::post('/update-password',[ClientController::class, 'updateSenha'])->name('update_senha');
 
     Route::get('/buy/finish', [CheckoutController::class, 'finishBuy'])->name('finish_buy');
-
+    
     Route::get('/mypassagens/cancelar/{idReserva}',[ClientController::class, 'cancelarPassagem'])->name('cancelar_passagem');
+    
     
 });
 
@@ -101,6 +102,8 @@ Route::get('/passagem/{p_inicial}/{destino}', 'App\Http\Controllers\PassageContr
 Route::any('/search/passagem/', 'App\Http\Controllers\PassageController@search')->name("search_passagem");
 
 Route::get('/search/passagem/param/{partindo_de}/{indo_para}/{data_passagem}', 'App\Http\Controllers\PassageController@searchComParametro')->name("search_passagem_com_param");
+
+Route::get('/search/passagem/only-param/{indo_de}', 'App\Http\Controllers\PassageController@searchDestinoPage')->name("search_passagem_com_um_param");
 
 //Route::post('/store/client', [ClientController::class, 'cadastrar'])->name("cadastro-cliente");
 Route::post('/store/client', 'App\Http\Controllers\ClientController@cadastrar')->name("cadastro-cliente");
@@ -212,6 +215,8 @@ Route::middleware(['auth'])->group(function(){
 
 Route::get('/send/mail',function(){
 
-    Mail::to('milagrestobjr@gmail.com')->send(new BilheteMail);
+    $send = Mail::to('milagrestobjr@gmail.com','Milagres JUnior')->send(new BilheteMail);
+
+    dd($send);
 
 });

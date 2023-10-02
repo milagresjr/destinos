@@ -12,9 +12,6 @@
 <div class="container section-cadastro">
     <div class="alert alert-success alert-dismissible fade show" role="alert" id="cliente-cadastrado"  style="display: none; border-radius: 0px;">
     <strong>Cadastro realizado!</strong> Faça login <a href="{{ route('login') }}" style="text-decoration: underline;">aqui</a>.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
     </div>
     <div class="alert alert-danger alert-dismissible fade show" role="alert" id="cliente-nao-cadastrado"  style="display: none; border-radius: 0px;">
         <strong>Cadastro não realizado!</strong> Tente novamente.

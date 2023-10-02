@@ -15,6 +15,16 @@ return [
 
     'default' => env('MAIL_MAILER', 'smtp'),
 
+    // 'stream' => [
+    //     'ssl' => [
+    //         'allow_self_signed' => true,
+    //         'verify_peer' => false,
+    //         'verify_peer_name' => false,
+    //         'crypto_method' => STREAM_CRYPTO_METHOD_TLS_CLIENT,
+    //     ],
+    // ],
+    
+
     /*
     |--------------------------------------------------------------------------
     | Mailer Configurations

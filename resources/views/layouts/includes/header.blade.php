@@ -66,8 +66,8 @@
                  <div class="dropdown">
                   <a class="dropdown-toggle" href="#dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Minha conta</a>
                       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Perfil</a></li>
-                        <li><a class="dropdown-item" href="#">Meus bilhetes</a></li>
+                        <li><a class="dropdown-item" href="{{ route('my_account') }}">Perfil</a></li>
+                        {{-- <li><a class="dropdown-item" href="{{ route('my_account') }}">Meus bilhetes</a></li> --}}
                         <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                       </ul>
                     </div>

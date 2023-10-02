@@ -8,8 +8,9 @@
 
     <div class="side-menu-myaccount shadow">
         <a href="{{ route('my_account') }}"><i class="fa fa-user"></i>  Meu Perfil</a>
-        <a href="{{ route('my_passagens') }}"><i class="fa fa-ticket"></i>  Minhas Passagens</a>
-        <a href="#"><i class="fa fa-cog"></i>  Notificações</a>
+        {{-- <a href="{{ route('my_passagens') }}"><i class="fa fa-ticket"></i>  Minhas Passagens</a> --}}
+        <a href="{{ route('my_passagens') }}"><i class="fa fa-ticket"></i>  Minhas Reservas</a>
+        <a href="#" class="notificacao"><i class="fa fa-cog"></i>  Notificações</a>
         <a href="{{ route('alt_senha') }}" class="active"><i class="fa fa-lock"></i>  Alterar Senha</a>
     </div>
 

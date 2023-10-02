@@ -231,6 +231,21 @@
     </script>
 @endif
 
+<script>
+
+  const noti = querySelectorAll(".notificacao");
+
+  noti.forEach(btn => {
+
+    btn.addEventListener('click', () => {
+
+      alert('oiii');
+
+    });
+
+  });
+
+</script>
 
 </body>
 </html>

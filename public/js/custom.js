@@ -20,6 +20,7 @@ $(document).ready(function () {
                 if (result.success) {
                     body.removeClass('loading');
                     $('#cliente-cadastrado').show();
+                    form.trigger('reset');
                 } else {
                     body.removeClass('loading');
                     $('#cliente-nao-cadastrado').show();

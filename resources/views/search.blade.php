@@ -250,7 +250,7 @@
                             }}</span>
                            <div class="route-info-line route-info-line-start"></div>
                            <div class="route-info-time">
-                               <p class="route-info-time-child time">11h 30min</p>
+                               {{-- <p class="route-info-time-child time">11h 30min</p> --}}
                            </div>
                            <div class="route-info-line route-info-line-end"></div>
                            <span class="route-info-hour route-info-hour-end">{{ 
@@ -295,12 +295,12 @@
             <h4>Itinerário da viagem</h4>
             <p><i class="fa fa-map-marker"></i>Embarque: <span>
                <!-- /* strftime('%A',strtotime($d->data_partida)) */  -->
-                {{ date('d/M',strtotime($d->data_partida)) }}
+                {{ date('d/m/Y',strtotime($d->data_partida)) }}
                 </span> às <span>{{ 
                 str_replace(':','h',date("H:i", strtotime($v->hora_partida))) 
                 }}</span> em <span>{{$v->provi_partida}}</span></p>
             <p><i class="fa fa-circle"></i>Desembarque: <span>
-                {{ date('d/M',strtotime($d->data_partida)) }}
+                {{ date('d/m/Y',strtotime($d->data_partida)) }}
                 </span> às <span>{{ 
                 str_replace(':','h',date("H:i", strtotime($v->hora_chegada))) 
                 }}</span> em <span>{{$v->provi_destino}}</span></p>
@@ -309,7 +309,7 @@
             <p class="col-12 col-lg-6 desc1">
             Viação: <span>{{ $v->nomeAgencia }}</span> <br>
             Preço da passagem de ônibus: <span>{{ number_format($v->preco_bilhete,2,',','.') }} Kz</span> <br>
-            Duração da viagem: <span>4h</span>
+            {{-- Duração da viagem: <span>4h</span> --}}
             </p>
             <p class="col-12 col-lg-6 desc2">
             Tipo de poltrona: <span>Econômico</span> <br>

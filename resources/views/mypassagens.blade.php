@@ -8,8 +8,9 @@
 
     <div class="side-menu-mypassagens shadow">
         <a href="{{ route('my_account') }}"><i class="fa fa-user"></i>  Meu Perfil</a>
-        <a href="{{ route('my_passagens') }}" class="active"><i class="fa fa-ticket"></i>  Minhas Passagens</a>
-        <a href="#"><i class="fa fa-cog"></i>  Notificações</a>
+        {{-- <a href="{{ route('my_passagens') }}" class="active"><i class="fa fa-ticket"></i>  Minhas Passagens</a> --}}
+        <a href="{{ route('my_passagens') }}" class="active"><i class="fa fa-ticket"></i>  Minhas Reservas</a>
+        <a href="#" class="notificacao" onclick="swal('Sem Notificação!','De momento não possui nenhuma notificação','warning')"><i class="fa fa-cog"></i>  Notificações</a>
         <a href="{{ route('alt_senha') }}"><i class="fa fa-lock"></i>  Alterar Senha</a>
     </div>
 
@@ -61,10 +62,10 @@
     <td><strong style="color: red;">{{ $r->status }}</strong></td>
     @endif
     <td>
-      <a href="#" class="btn btn-primary">
+      {{-- <a href="#" class="btn btn-primary">
         <i class="fa fa-eye"></i>
         Ver Detalhes
-      </a>
+      </a> --}}
       @if($r->status == "Aguardando Pagamento")
       <button id="btnCancelar" data-id-reserva="{{ $r->id }}" class="btn btn-danger btnCancelarReserva">
         <i class="fa fa-cancel"></i>
